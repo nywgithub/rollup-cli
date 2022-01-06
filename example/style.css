@@ -1,1 +1,138 @@
-.ft-pagination{display:flex;align-items:stretch}.ft-pagination.is-simple .ft-pagination-item{padding:7.5px 10px}.ft-pagination-item{padding:5px 10px;border:1px solid #dae0e6;background:#fff;color:#222;font-size:14px;line-height:1.5;text-decoration:none;display:inline-flex}.ft-pagination-item+.ft-pagination-item{border-left:none}.ft-pagination-item:first-child{border-top-left-radius:4px;border-bottom-left-radius:4px}.ft-pagination-item:last-child{border-top-right-radius:4px;border-bottom-right-radius:4px}.ft-pagination-item:hover{color:#222;background:#f5f7fa;text-decoration:none}.ft-pagination-item.is-disabled,.ft-pagination-item.is-disabled:hover{cursor:default;background:#f5f7fa;border:1px solid #ced3d9;color:#b3b3b3}.ft-pagination-item.is-active,.ft-pagination-item.is-more{border:none;background:unset}.ft-pagination-item.is-active+.ft-pagination-item,.ft-pagination-item.is-more+.ft-pagination-item{border-left:1px solid #dae0e6}.ft-pagination-item.is-active{color:#e64545}.ft-pagination-item.is-more{padding:5px}.ft-pagination-item .ft-icon{font-size:16px;line-height:1;display:inline-flex;align-items:center}
+.pager a {
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    border: 1px solid #ced3d9;
+    background: #f5f7fa;
+    margin: 0 2px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #222;
+    vertical-align: top
+}
+
+.pager a:hover {
+    background: #e6ecf2;
+    text-decoration: none
+}
+
+.pager a .micon {
+    cursor: pointer
+}
+
+.pager a.main {
+    background: #e64545;
+    border-color: #e64545;
+    color: #fff
+}
+
+.pager a.main:hover {
+    background: #d92121
+}
+
+.pager .dot,.pager .current {
+    display: inline-block;
+    vertical-align: top;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 6px
+}
+
+.pager .current {
+    min-width: 18px;
+    color: #e64545;
+    text-align: center
+}
+
+.pager .disClick {
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    margin: 0 2px;
+    border-radius: 3px;
+    text-decoration: none;
+    vertical-align: top;
+    cursor: not-allowed;
+    background: #edf0f2;
+    border: 1px solid #dae0e6;
+    color: #b2b2b2
+}
+
+.pager .disClick .micon {
+    line-height: 28px
+}
+
+.pager a[disabled] {
+    cursor: not-allowed;
+    background: #edf0f2;
+    border: 1px solid #dae0e6;
+    color: #b2b2b2
+}
+
+.pager a[disabled] .micon {
+    cursor: not-allowed
+}
+
+.pager .micon {
+    margin-right: 0;
+    line-height: 28px
+}
+
+.pager .page-main {
+    background: #e64545;
+    border: 1px solid #e64545;
+    color: #fff
+}
+
+.pager .page-main:hover {
+    border-color: #d92121;
+    background: #d92121
+}
+
+.pager-simple .pager-box {
+    display: inline-block;
+    width: 67px;
+    height: 28px;
+    border: 1px solid #ced3d9;
+    border-radius: 3px;
+    vertical-align: top;
+    overflow: hidden;
+    font-size: 0
+}
+
+.pager-simple .pager-box a,.pager-simple .pager-box button {
+    float: left;
+    width: 33px;
+    text-align: center;
+    line-height: 28px;
+    height: 28px;
+    background: #f5f7fa;
+    color: #555;
+    border: 0
+}
+
+.pager-simple .pager-box a:hover,.pager-simple .pager-box button:hover {
+    background: #e6ecf2
+}
+
+.pager-simple .pager-box a:first-child,.pager-simple .pager-box button:first-child {
+    border-right: 1px solid #ced3d9
+}
+
+.pager-simple .pager-box button:first-child {
+    width: 34px
+}
+
+.pager-simple .pager-box .micon,.pager-simple .pager-box .ob-icon {
+    margin-right: 0
+}
+
+.pager-simple .page-num {
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: top;
+    color: #555;
+    margin-right: 6px
+}
