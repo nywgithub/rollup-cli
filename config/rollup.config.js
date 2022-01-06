@@ -98,12 +98,13 @@ const plugins = [
         minimize: true,
         extract: false,
         inject: function (cssVar, filePath) {
+            //css插入head
             return `styleInject(${ cssVar }, {id: "${ ['reaction', version].join("-") }"});`
         },
         use: ["sass"]
     }),
     development && serve({
-        open: true,
+        // open: true,
         contentBase: "example",
         host: "127.0.0.1",
         hot: true,
