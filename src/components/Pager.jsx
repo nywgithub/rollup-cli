@@ -94,6 +94,7 @@ export default class Pager extends React.Component {
     const { search_val } = this.state;
     const { total, current, onChangePage } = this.props;
     let _page = parseInt(search_val);
+    console.log(_page)
     if (isNaN(_page)) return false;
     if (_page < 1) {
       _page = 1;

@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 import RcRate from 'rc-rate'
 export interface RateProps {
   character?: React.ReactNode
@@ -9,24 +8,22 @@ export interface RateProps {
   value?: number
   defaultValue?: number
   allowHalf?: boolean
+  allowClear?: boolean
   disabled?: boolean
   tooltips?: Array<string>
   onChange?: (value: number) => void
   onHoverChange?: (value: number) => void
 }
-const Rate: React.FC<RateProps> = (props) => {
 
+const Rate: React.FC<RateProps> = (props) => {
   return (
     <span className="product-star-lv">
-      <RcRate
-        {...props}
-        // character = {<i className="ob-icon icon-star-f stared"></i>}
-      />
+      <RcRate {...props} />
     </span>
   )
 }
 Rate.defaultProps = {
   count: 5,
-//   character: <i className="ob-icon icon-star-f stared"></i>
+  //   character: <i className="ob-icon icon-star-f stared"></i>
 }
 export default Rate
