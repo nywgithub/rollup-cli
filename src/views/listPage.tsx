@@ -30,7 +30,12 @@ const ListPage: React.FC<listPageProps> = (props) => {
     </>
   )
   const fingerRateClick = (e, val, key) => {
+    // 获取点赞情况
     console.log(e, val, key)
+  }
+  const starRateChange = (val) => {
+    //获取星星数量
+    console.log(val)
   }
   return (
     <div>
@@ -39,7 +44,12 @@ const ListPage: React.FC<listPageProps> = (props) => {
         <div>How to write?</div>
       </ToolTip>
       {/* 星星打分 */}
-      <Rate allowClear></Rate>
+      <Rate
+        allowClear
+        onChange={(val) => {
+          starRateChange(val)
+        }}
+      ></Rate>
       {/* 拇指打分 */}
       <FingerRate
         character={<div>1</div>}
