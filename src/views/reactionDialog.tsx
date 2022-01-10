@@ -42,8 +42,6 @@ export const callReactionFormDialog = () => {
     ok(){
       console.log('ok')
     }
-  }).then((data) => {
-    console.log('>>>>>>>>>', data)
   })
 }
 
