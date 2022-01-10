@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import styleInject from "style-inject";
+//允许打包scss
 import postcss from "rollup-plugin-postcss";
 import autoprefixer from "autoprefixer";
 import replace from '@rollup/plugin-replace';
@@ -91,12 +92,12 @@ const plugins = [
         ]
     }),
     postcss({
-        extensions: ["css", "scss"],
+        extensions: ["scss"],
         plugins: [
             autoprefixer()
         ],
         minimize: true,
-        extract: false,
+        extract: true,
         inject: function (cssVar, filePath) {
             //css插入head
             return `styleInject(${ cssVar }, {id: "${ ['reaction', version].join("-") }"});`
@@ -135,7 +136,7 @@ export default [
     //弹窗组件
     {
         // external: ['react', 'react-dom'],
-        input: './src/views/reactionDialog.tsx',
+        input: './src/index.ts',
         output: {
             dir: production ? 'dist' : 'example/dist',
             format: 'umd',

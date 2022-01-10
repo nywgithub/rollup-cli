@@ -1,0 +1,115 @@
+.tip {
+    position: absolute;
+    padding: 10px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+    background: #fff;
+    border: 1px solid #ced3d9;
+    box-shadow: 2px 2px 3px rgba(0,33,66,.1)
+}
+
+.tip .tip-con .tip-para {
+    margin: 0 0 10px 0
+}
+
+.tip .tip-con .tip-para:last-child,.tip .tip-con .tip-para.last-child {
+    margin-bottom: 0
+}
+
+.tip.icon-tip {
+    box-shadow: none;
+    padding: 3px 10px;
+    border: none
+}
+
+.tip.icon-tip .arrow {
+    border: 6px dashed transparent
+}
+
+.tip.icon-tip.tip-black {
+    background: #222;
+    color: #fff
+}
+
+.tip.icon-tip.arrow-top .arrow {
+    border-bottom: 6px solid #222;
+    left: 50%;
+    top: -11px;
+    margin-left: -6px
+}
+
+.tip.icon-tip.arrow-bottom .arrow {
+    border-top: 6px solid #222;
+    left: 50%;
+    bottom: -11px;
+    margin-left: -6px
+}
+
+.tip.icon-tip.arrow-left .arrow {
+    border-right: 6px solid #222;
+    top: 50%;
+    left: -11px;
+    margin-top: -6px
+}
+
+.tip.icon-tip.arrow-right .arrow {
+    border-left: 6px solid #222;
+    top: 50%;
+    right: -11px;
+    margin-top: -6px
+}
+
+.tip .arrow {
+    position: absolute;
+    zoom:1;width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    border: 8px dashed transparent
+}
+
+.tip.arrow-top .arrow-out {
+    border-bottom: 8px solid #ced3d9;
+    left: 10px;
+    top: -16px
+}
+
+.tip.arrow-top .arrow-in {
+    border-bottom: 8px solid #fff;
+    margin: -7px 0 0 -8px
+}
+
+.tip.arrow-bottom .arrow-out {
+    border-top: 8px solid #ced3d9;
+    left: 10px;
+    bottom: -16px
+}
+
+.tip.arrow-bottom .arrow-in {
+    border-top: 8px solid #fff;
+    margin: -9px 0 0 -8px
+}
+
+.tip.arrow-left .arrow-out {
+    border-right: 8px solid #ced3d9;
+    top: 10px;
+    left: -16px
+}
+
+.tip.arrow-left .arrow-in {
+    border-right: 8px solid #fff;
+    margin: -8px 0 0 -7px
+}
+
+.tip.arrow-right .arrow-out {
+    border-left: 8px solid #ced3d9;
+    top: 10px;
+    right: -16px
+}
+
+.tip.arrow-right .arrow-in {
+    border-left: 8px solid #fff;
+    margin: -8px 0 0 -9px
+}
