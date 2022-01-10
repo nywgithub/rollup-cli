@@ -1,0 +1,57 @@
+@include b(crumb) {
+	color: $--color-text-secondary;
+	vertical-align: middle;
+	display: flex;
+	flex-wrap: wrap;
+
+	.icon-right {
+		margin: 0 3px 0;
+		width: 16px;
+		font-size: 16px;
+        line-height: 20px;
+		background: none;
+	    color: $--color-text-secondary;
+	}
+	
+	h1, 
+	h2,
+	h3,
+	span, 
+	a{
+        font-size: 14px;
+        line-height: 20px;
+		height: 20px;
+		display: inline-block;
+		font-weight: normal;
+	}
+
+	a {
+		color: $--color-text-regular;
+
+		&:hover {
+			color: $--color-red;
+		}
+	}
+
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+	}
+	@include when(dark){
+		color: $--color-border-module;
+		&>h1, &>span, a, &>h2, &>h3 {
+			color: $--color-border-module;
+		}
+		a{
+			color: $--color-border-module;
+			&:hover {
+				color: $--color-red;
+			}
+		}
+	}
+}

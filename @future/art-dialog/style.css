@@ -1,0 +1,351 @@
+.dlg-state-notitle .dlg-titlebar {
+  *zoom: 1;
+}
+.dlg-state-notitle .dlg-titlebar:before, .dlg-state-notitle .dlg-titlebar:after {
+  content: "";
+  display: table;
+}
+.dlg-state-notitle .dlg-titlebar:after {
+  clear: both;
+}
+
+.dlg-dialog {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+}
+.dlg-dialog ::-webkit-scrollbar {
+  width: 10px;
+  background: #fff;
+}
+.dlg-dialog ::-webkit-scrollbar-thumb {
+  background: #dae0e6;
+  border-radius: 5px;
+}
+
+.dlg-outer {
+  text-align: left;
+}
+
+.dlg-header {
+  *zoom: 1;
+}
+
+.dlg-titlebar {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  *zoom: 1;
+}
+
+.dlg-title {
+  padding: 20px;
+  *min-width: 760px;
+  background-color: #fff;
+  border-radius: 3px 3px 0 0;
+  border-bottom: 1px solid #e6ecf2;
+  color: #222;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  *zoom: 1;
+}
+
+.dlg-close {
+  display: block;
+  position: absolute;
+  text-decoration: none;
+  outline: none;
+  padding: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+  _cursor: pointer;
+}
+.dlg-close .icon-delete {
+  color: rgba(34, 34, 34, 0.5);
+  font-size: 16px;
+  top: 50%;
+  right: 20px;
+  position: absolute;
+  transform: translate(0, -50%);
+}
+.dlg-close .icon-delete:hover {
+  color: #222;
+}
+
+.dlg-icon {
+  vertical-align: middle;
+}
+.dlg-icon div {
+  width: 48px;
+  height: 48px;
+  margin: 10px 0 10px 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.dlg-main {
+  min-width: 300px;
+  position: relative;
+}
+
+.dlg-content {
+  *zoom: 1;
+  border: none 0;
+  padding: 20px;
+  position: relative;
+}
+.dlg-content:before, .dlg-content:after {
+  content: "";
+  display: table;
+}
+.dlg-content:after {
+  clear: both;
+}
+.dlg-content.dlg-state-full {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0 !important;
+  height: 100%;
+}
+
+.dlg-loadding {
+  min-width: 300px;
+  min-height: 200px;
+  text-align: center;
+  text-indent: -999em;
+  overflow: hidden;
+  background: url(/common/img/icon/loading.gif) no-repeat center center;
+}
+
+.dlg-footer {
+  padding: 20px;
+  border-top: 1px solid #DAE0E6;
+  border-radius: 0 0 3px 3px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.dlg-buttons {
+  text-align: right;
+  white-space: nowrap;
+  border-radius: 0 0 3px 3px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.dlg-buttons button {
+  margin-left: 10px;
+  padding: 6px 15px;
+  height: auto;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+
+.dlg-inner {
+  background: #fff;
+}
+
+.dlg-se {
+  display: none;
+  position: absolute;
+  right: 0;
+  width: 6px;
+  height: 6px;
+  background: #3d4b66;
+  border-radius: 0 0 3px 0;
+}
+
+.dlg-state-notitle .dlg-title {
+  display: none;
+}
+.dlg-state-notitle .dlg-se {
+  width: 3px;
+  height: 3px;
+  background: none !important;
+}
+.dlg-state-notitle .dlg-inner {
+  background: none;
+}
+.dlg-state-notitle .dlg-outer {
+  border: none 0;
+}
+.dlg-state-notitle .dlg-titlebar {
+  bottom: 0;
+  _bottom: 0;
+  _margin-top: 0;
+  z-index: 5;
+}
+.dlg-state-notitle .dlg-close {
+  position: static;
+  float: right;
+  width: 30px;
+  height: 30px;
+  margin-bottom: -30px;
+  background-position: -5px -5px;
+}
+.dlg-state-notitle .dlg-close:hover {
+  background-position: -5px -45px;
+}
+.dlg-state-notitle .dlg-result {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.dlg-state-notitle .dlg-result .msg p {
+  margin-bottom: 10px;
+}
+
+.dlg-state-lock .dlg-se {
+  background: #333;
+  background: #333 \9  !important;
+}
+
+.dialog-loading {
+  background: url(/common/img/icon/loading.gif) no-repeat center center;
+  width: 100%;
+  height: 100%;
+  min-width: 500px;
+  min-height: 350px;
+  position: relative;
+}
+.dialog-loading .dialog-loading-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  top: 50%;
+  margin-top: -60px;
+}
+
+.dialog-refresh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+}
+.dialog-refresh .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  margin-top: -15px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.dialog-refresh .btn {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dialog-confirm {
+  text-align: center;
+  *zoom: 1;
+  width: 360px;
+  margin: 10px auto 10px;
+}
+.dialog-confirm:before, .dialog-confirm:after {
+  content: "";
+  display: table;
+}
+.dialog-confirm:after {
+  clear: both;
+}
+.dialog-confirm .ico {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: middle;
+  *display: inline;
+  *zoom: 1;
+  width: 44px;
+  height: 44px;
+  font-size: 0px;
+  line-height: 0;
+  background: url(/common/img/dialog/2.0/bg-ico.png) no-repeat;
+  background-position: 0 -44px;
+}
+.dialog-confirm .cnt {
+  overflow: hidden;
+  padding-top: 12px;
+  font-size: 14px;
+}
+.dialog-confirm .cnt p {
+  margin-top: 0;
+}
+.dialog-confirm.confirm-system .ico {
+  background-position: 0 -44px;
+}
+.dialog-confirm.confirm-succ .ico {
+  background-position: 0 0px;
+}
+.dialog-confirm.confirm-wrong .ico {
+  background-position: 0 -88px;
+}
+.dialog-confirm.confirm-alert .ico {
+  background: url(/common/img/dialog/2.0/icon-warn-48.png) no-repeat;
+  background-position: 0 0;
+  width: 48px;
+  height: 48px;
+}
+
+.dlg-result {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.dlg-result .state {
+  text-align: center;
+  height: 48px;
+  margin-bottom: 10px;
+}
+.dlg-result .state .micon {
+  font-size: 48px;
+  margin-right: 0px;
+}
+.dlg-result .state .micon.succ {
+  color: #00cc00;
+}
+.dlg-result .state .micon.error {
+  color: #e62e2e;
+}
+.dlg-result .state .micon.warning {
+  color: #f89406;
+}
+.dlg-result .state .micon.info {
+  color: #1793e6;
+}
+.dlg-result .msg {
+  margin-top: 0px;
+  font-size: 14px;
+  color: #222;
+  text-align: center;
+}
+.dlg-result .msg p {
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
+.dlg-text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.dlg-text p {
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.dlg-text p:last-of-type {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

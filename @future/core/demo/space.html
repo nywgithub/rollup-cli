@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>间距</title>
+    <link rel="stylesheet" href="../dist/style/future.css">
+    <link rel="stylesheet" href="demo.css">
+    <style>
+        .demo-space-item{
+            box-sizing: border-box;
+            line-height: 28px;
+            font-size: 16px;
+        }
+        .demo-space-m-top{
+            border-top: 2px solid #e5e9f2;
+        }
+        .demo-space-p-top{
+            background: #e5e9f2;
+            margin-top: 2px;
+        }
+
+        .demo-space-m-bottom{
+            border-bottom: 2px solid #e5e9f2;
+        }
+        .demo-space-p-bottom{
+            background: #e5e9f2;
+            margin-bottom: 2px;
+        }
+
+        .demo-space-m-right{
+            border-right: 2px solid #e5e9f2;
+            display: inline-block;
+        }
+        .demo-space-p-right{
+            background: #e5e9f2;
+            display: inline-block;
+            margin-right: 2px;
+        }
+
+        .demo-space-m-left{
+            border-left: 2px solid #e5e9f2;
+            display: inline-block;
+        }
+        .demo-space-p-left{
+            background: #e5e9f2;
+            display: inline-block;
+            margin-left: 2px;
+        }
+
+        .demo-space-m-horizontal{
+            border-left: 2px solid #e5e9f2;
+            border-right: 2px solid #e5e9f2;
+            display: inline-block;
+        }
+        .demo-space-p-horizontal{
+            background: #e5e9f2;
+            display: inline-block;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        .demo-space-m-vertical{
+            border-top: 2px solid #e5e9f2;
+            border-bottom: 2px solid #e5e9f2;
+            float: left;
+            width: 100%;
+        }
+        .demo-space-p-vertical{
+            background: #e5e9f2;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            float: left;
+            width: 100%;
+        }
+        
+        .demo-space-v-box{
+            display: flex;
+        }
+        .demo-space-v-inr{
+            flex: 1 1 50%;
+            padding: 5px;
+            overflow: hidden;
+        }
+        .demo-space-h-inr{
+            font-size: 0;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <h3>左边距</h3>
+        <div class="demo-layout demo-block">
+            <div class="source">
+                <div class="demo-space-h-box">
+                    <div class="demo-space-h-inr">
+                        <div class="demo-space-item demo-space-m-left ft-space-mgl3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-m-left ft-space-mgl5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-m-left ft-space-mgl10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-m-left ft-space-mgl15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-m-left ft-space-mgl20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-m-left ft-space-mgl30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-m-left ft-space-mgl40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-m-left ft-space-mgl50">
+                            50px
+                        </div>
+
+                    </div>
+                    <div class="demo-space-h-inr">
+                        <div class="demo-space-item demo-space-p-left ft-space-pdl3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-p-left ft-space-pdl5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-p-left ft-space-pdl10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-p-left ft-space-pdl15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-p-left ft-space-pdl20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-p-left ft-space-pdl30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-p-left ft-space-pdl40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-p-left ft-space-pdl50">
+                            50px
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>右边距</h3>
+        <div class="demo-layout demo-block">
+            <div class="source">
+                <div class="demo-space-h-box">
+                    <div class="demo-space-h-inr">
+                        <div class="demo-space-item demo-space-m-right ft-space-mgr3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-m-right ft-space-mgr5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-m-right ft-space-mgr10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-m-right ft-space-mgr15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-m-right ft-space-mgr20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-m-right ft-space-mgr30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-m-right ft-space-mgr40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-m-right ft-space-mgr50">
+                            50px
+                        </div>
+
+                    </div>
+                    <div class="demo-space-h-inr">
+                        <div class="demo-space-item demo-space-p-right ft-space-pdr3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-p-right ft-space-pdr5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-p-right ft-space-pdr10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-p-right ft-space-pdr15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-p-right ft-space-pdr20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-p-right ft-space-pdr30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-p-right ft-space-pdr40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-p-right ft-space-pdr50">
+                            50px
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>左右边距</h3>
+        <div class="demo-layout demo-block">
+            <div class="source">
+                <div class="demo-space-h-box">
+                    <div class="demo-space-h-inr">
+                        <div class="demo-space-item demo-space-m-horizontal ft-space-mgh3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-m-horizontal ft-space-mgh5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-m-horizontal ft-space-mgh10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-m-horizontal ft-space-mgh15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-m-horizontal ft-space-mgh20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-m-horizontal ft-space-mgh30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-m-horizontal ft-space-mgh40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-m-horizontal ft-space-mgh50">
+                            50px
+                        </div>
+
+                    </div>
+                    <div class="demo-space-h-inr">
+                        <div class="demo-space-item demo-space-p-horizontal ft-space-pdh3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-p-horizontal ft-space-pdh5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-p-horizontal ft-space-pdh10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-p-horizontal ft-space-pdh15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-p-horizontal ft-space-pdh20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-p-horizontal ft-space-pdh30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-p-horizontal ft-space-pdh40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-p-horizontal ft-space-pdh50">
+                            50px
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>上边距</h3>
+        <div class="demo-layout demo-block">
+            <div class="source">
+                <div class="demo-space-v-box">
+                    <div class="demo-space-v-inr">
+                        <div class="demo-space-item demo-space-m-top ft-space-mgt3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-m-top ft-space-mgt5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-m-top ft-space-mgt10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-m-top ft-space-mgt15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-m-top ft-space-mgt20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-m-top ft-space-mgt30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-m-top ft-space-mgt40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-m-top ft-space-mgt50">
+                            50px
+                        </div>
+                    </div>
+                    <div class="demo-space-v-inr">
+                        <div class="demo-space-item demo-space-p-top ft-space-pdt3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-p-top ft-space-pdt5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-p-top ft-space-pdt10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-p-top ft-space-pdt15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-p-top ft-space-pdt20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-p-top ft-space-pdt30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-p-top ft-space-pdt40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-p-top ft-space-pdt50">
+                            50px
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>下边距</h3>
+        <div class="demo-layout demo-block">
+            <div class="source">
+                <div class="demo-space-v-box">
+                    <div class="demo-space-v-inr">
+                        <div class="demo-space-item demo-space-m-bottom ft-space-mgb3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-m-bottom ft-space-mgb5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-m-bottom ft-space-mgb10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-m-bottom ft-space-mgb15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-m-bottom ft-space-mgb20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-m-bottom ft-space-mgb30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-m-bottom ft-space-mgb40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-m-bottom ft-space-mgb50">
+                            50px
+                        </div>
+                    </div>
+                    <div class="demo-space-v-inr">
+                        <div class="demo-space-item demo-space-p-bottom ft-space-pdb3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-p-bottom ft-space-pdb5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-p-bottom ft-space-pdb10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-p-bottom ft-space-pdb15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-p-bottom ft-space-pdb20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-p-bottom ft-space-pdb30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-p-bottom ft-space-pdb40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-p-bottom ft-space-pdb50">
+                            50px
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>上下边距</h3>
+        <div class="demo-layout demo-block">
+            <div class="source">
+                <div class="demo-space-v-box">
+                    <div class="demo-space-v-inr">
+                        <div class="demo-space-item demo-space-m-vertical ft-space-mgv3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-m-vertical ft-space-mgv5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-m-vertical ft-space-mgv10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-m-vertical ft-space-mgv15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-m-vertical ft-space-mgv20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-m-vertical ft-space-mgv30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-m-vertical ft-space-mgv40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-m-vertical ft-space-mgv50">
+                            50px
+                        </div>
+
+                    </div>
+                    <div class="demo-space-v-inr">
+                        <div class="demo-space-item demo-space-p-vertical ft-space-pdv3">
+                            3px
+                        </div>
+                        <div class="demo-space-item demo-space-p-vertical ft-space-pdv5">
+                            5px
+                        </div>
+                        <div class="demo-space-item demo-space-p-vertical ft-space-pdv10">
+                            10px
+                        </div>
+                        <div class="demo-space-item demo-space-p-vertical ft-space-pdv15">
+                            15px
+                        </div>
+                        <div class="demo-space-item demo-space-p-vertical ft-space-pdv20">
+                            20px
+                        </div>
+                        <div class="demo-space-item demo-space-p-vertical ft-space-pdv30">
+                            30px
+                        </div>
+                        <div class="demo-space-item demo-space-p-vertical ft-space-pdv40">
+                            40px
+                        </div>
+                        <div class="demo-space-item demo-space-p-vertical ft-space-pdv50">
+                            50px
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</body>
+
+</html>

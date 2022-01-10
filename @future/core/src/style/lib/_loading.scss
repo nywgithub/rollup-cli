@@ -1,0 +1,37 @@
+
+@include b(loading) {
+    padding: 20px 20px;
+    text-align: center;
+    @include e(list){
+        display: inline-block;
+        background: url("../assets/imgs/list_load.png");
+        @include when(gif){
+            background: url("../assets/imgs/list_load.gif");
+        }
+        @each $size, $wh in $--loading-size {
+            @include when($size){
+                width:nth($wh, 1);
+                height:nth($wh, 2);
+                background-size: cover;
+            }
+        }
+    }
+
+    @include e(page){
+        display: inline-block;
+        background: url("../assets/imgs/page_load.png");
+        @include when(gif){
+            background: url("../assets/imgs/page_load.gif");
+        }
+        @each $size, $wh in $--loading-size {
+            @include when($size){
+                width:nth($wh, 1);
+                height:nth($wh, 2);
+                background-size: cover;
+            }
+        }
+    }
+    @include e(text){
+        font-size: 12px;
+    }
+}

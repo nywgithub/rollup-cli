@@ -1,0 +1,50 @@
+@include b(card) {
+    $selector: &;
+    margin-bottom: 20px;
+    border: 1px solid #E6ECF2;
+    transition: box-shadow .3s;
+    
+    @include when(hover-shadow){
+        &:hover{
+            box-shadow: map-get(map-get($--shadow-type, "1"), "bottom")
+        }
+    }
+    @include when(radius){
+        border-radius: $--border-radius-base;
+    }
+    @include when(radius-large){
+        border-radius: $--border-radius-large;
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+    #{$selector}-header{
+        border-bottom: 1px solid #E6ECF2;
+
+    }
+    #{$selector}-footer{
+        border-top: 1px solid #E6ECF2;
+    }
+
+    &-pd15{
+        #{$selector}-header,
+        #{$selector}-body,
+        #{$selector}-footer{
+            padding: 15px;
+        }
+    }
+    &-pd20{
+        #{$selector}-header,
+        #{$selector}-body,
+        #{$selector}-footer{
+            padding: 20px;
+        }
+    }
+    &-pd30{
+        #{$selector}-header,
+        #{$selector}-body,
+        #{$selector}-footer{
+            padding: 30px;
+        }
+    }
+}

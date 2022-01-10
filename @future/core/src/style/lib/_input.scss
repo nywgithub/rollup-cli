@@ -1,0 +1,783 @@
+@mixin max-screen($res) {
+    @media only screen and (max-width: $res) {
+        @content;
+    }
+}
+@mixin input-disabled() {
+    &-disabled,
+    &[disabled],
+    &.disabled,
+    &.is-disabled{
+        @content;
+    }
+}
+@mixin tipContent($bdColor, $bgColor) {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    padding: 10px;
+    max-width: 300px;
+    background: $bgColor;
+    //border: 1px solid $bdColor;
+    box-shadow: 0px 9px 16px 8px rgba(0,0,0,0.03), 0px 6px 10px 0px rgba(0,0,0,0.06), 0px 3px 6px -3px rgba(0,0,0,0.12);
+    box-sizing: border-box;
+    z-index: 500;
+    border-radius: 3px;
+}
+@mixin trangle($color) {
+    position: absolute;
+    zoom: 1;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    border: 8px dashed transparent;
+    border-top: 8px solid $color;
+}
+@mixin input-common(){
+    // 单选框、复选框、开关、标签样式共有
+    user-select: none;
+    .#{$namespace}-input-wrap {
+        //background-color: $--color-white;
+        display: inline-block;
+        font-weight: normal;
+        vertical-align: middle;
+        position: relative;
+        margin-right: 10px;
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+        vertical-align: middle;
+        & + .#{$namespace}-input-ctnr {
+            display: none;
+        }
+        @include max-screen(1000000px) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            & + .#{$namespace}-input-ctnr {
+                display: inline-block;
+                cursor: pointer;
+                transition: all 0.1s ease-in;
+                vertical-align: middle;
+                margin-top: -2px;
+            }
+        }
+    }
+}
+@include b(input-text) {
+    padding: 4px  10px;
+    border: 1px solid $--color-border-button;
+    border-radius: 3px;
+    color: $--color-text-primary;
+    vertical-align: middle;
+    background-color: $--color-white;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.5;
+    height: 31px;
+    &:hover{
+        border: 1px solid $--color-grey;
+    }
+    &:focus {
+        border-color: $--color-blue;
+        outline: 0;
+    }
+    &::-webkit-input-placeholder {
+        color: $--color-text-placeholder;
+    }
+    &:-moz-placeholder {
+        color: $--color-text-placeholder;
+    }
+    &::-moz-placeholder {
+        color: $--color-text-placeholder;
+    }
+    &:-ms-input-placeholder {
+        color: $--color-text-placeholder;
+    }
+
+    @include input-disabled(){
+        border-color: $--color-border-button;
+        background-color: $--input-disabled-bg;
+        cursor: not-allowed;
+    }
+
+    @include when(error){
+        border-color: $--input-error-border-color;
+    }
+    @include when(tip){
+        &:focus + .#{$namespace}-input-text__feedback{
+            display: block;
+        }
+    }
+    @include e(feedback){
+        clear: left;
+        @include when(tip){
+            @include tipContent($--color-border-button, $--color-white);
+            & .#{$namespace}-input-text--prompt{
+                position: relative;
+                &:before{
+                    content: '';
+                    left: 10px;
+                    bottom: -26px;
+                    @include trangle($--color-border-button);
+                }
+                &:after{
+                    content: '';
+                    @include trangle($--color-white);
+                    margin: -9px 0 0 -8px;
+                    left: 18px;
+                    bottom: -26px;
+                }
+            }
+        }
+    }
+    @include m(error){
+        margin-top: 5px;
+        color: $--color-red;
+        display: inline-block;
+    }
+    @include m(prompt){
+        color: $--color-grey;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 5px;
+        line-height: 1.5;
+        clear: both;
+        display: inline-block;
+    }
+}
+
+@include b(text-item){
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    @include when(search){
+        width: 100%;
+        @include b(input-head){
+            background-color: transparent;
+            border-left: 0;
+            border-right: 0;
+            .#{$namespace}-icon{
+                font-size: 16px;
+                color: $--color-grey;
+                line-height: 1.5;
+            }
+        }
+        .#{$namespace}-input-cnt{
+            .#{$namespace}-input-text{
+                font-size: 14px;
+            }
+        }
+    }
+    input[type="number"] {
+        -moz-appearance:textfield;
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+    @include b(input-wrap){
+        overflow: hidden;
+        button{
+            cursor: pointer;
+            outline: 0;
+            &:hover{
+                color: $--color-text-regular;
+            }
+        }
+    }
+    @include b(input-head){
+        border: 1px;
+        padding: 4px 10px;
+        text-align: center;
+        line-height: 1.5;
+        color: #AAAAAA;
+        float: left;
+        background-color: $--color-background-regular;
+        border-right: 1px solid $--color-border-button;
+        border-radius: 3px 0 0 3px;
+        position: relative;
+        left: 1px;
+        z-index: 2;
+        top: 1px;
+        font-size: 14px;
+        height: 29px;
+        box-sizing: border-box;
+        .#{$namespace}-icon{
+            font-size: 20px;
+            line-height: 1;
+        }
+        @include when(icon) {
+            padding: 4.5px 10px;
+            height: 29px;
+        }
+        @include input-disabled(){
+            border-color: $--color-border-button;
+            background-color: $--input-disabled-bg;
+            cursor: not-allowed;
+        }
+        @include when(stepper) {
+            background-color: transparent;
+            font-size: 20px;
+            padding: 1px 10px;
+            height: 29px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            border-right: 0;
+            @include input-disabled(){
+                background-color: $--color-background-regular;
+                border-right: 1px solid #CED3D9;
+            }
+            &.is-bg-disabled {
+                background-color: $--color-background-regular;
+            }
+            &.is-text-disabled {
+                color: #D1D1D1;
+            }
+        }
+    }
+    @include b(input-ctnr){
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        border: 1px solid $--color-border-button;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-sizing: border-box;
+    }
+    @include b(input-cnt){
+        overflow: hidden;
+        input {
+            width: 100%;
+        }
+    }
+    @include b(input-text){
+        border-color: transparent;
+        background: transparent;
+        border-radius: 0 3px 3px 0;
+        float: right;
+        border-left: 0;
+        margin-right: 0;
+        position: relative;
+        z-index: 1;
+        border-left: 1px solid #CED3D9;
+        text-align: left;
+        &:hover + .#{$namespace}-input-ctnr{
+            border-color: $--color-grey;
+        }
+        &:focus + .#{$namespace}-input-ctnr{
+            border-color: $--color-blue;
+        }
+        @include input-disabled(){
+            border-color: $--color-border-button;
+            background-color: $--input-disabled-bg;
+            cursor: not-allowed;
+            &:hover + .#{$namespace}-input-ctnr{
+                border-color: $--color-border-button;
+            }
+        }
+        @include when(error){
+            & + .#{$namespace}-input-ctnr{
+                border-color: $--input-error-border-color;
+            }
+        }
+        @include when(stepper){
+            text-align: center;
+        }
+    }
+    &.#{$namespace}-text-item-c{
+        .#{$namespace}-input-head-r {
+            border: none;
+            float: right;
+            border-left: 1px solid $--color-border-button;
+            border-radius: 0 3px 3px 0;
+            left: auto;
+            right: 1px;
+            @include when(stepper) {
+                @include input-disabled(){
+                    border-right: 0;
+                }
+            }
+        }
+        .#{$namespace}-input-text {
+            border-left: 1px solid $--color-border-button;
+            border-radius: 0;
+            z-index: 3;
+            &:focus {
+                border-color: $--color-blue;
+                outline: 0;
+            }
+            @include when(error){
+                border-color: $--color-red;
+                & + .#{$namespace}-input-ctnr {
+                    border-color: $--color-border-button;
+                }
+            }
+            &[disabled],
+            .#{$namespace}-disabled {
+                border-color: $--color-border-button;
+                background-color: #F5F7FA;
+                cursor: not-allowed;
+            }
+            &:focus + .#{$namespace}-input-ctnr,
+            &:focus + .#{$namespace}-feedback-block + .#{$namespace}-input-ctnr {
+                border-color: $--color-border-button;
+            }
+            /*.#{$namespace}-hlt-error + .#{$namespace}-input-ctnr {
+                border-color: $--color-border-button;
+            }*/
+        }
+    }
+    @include m(right){
+        @include b(input-head){
+            border: none;
+            float: right;
+            border-left: 1px solid $--color-border-button;
+            border-radius: 0 3px 3px 0;
+            left: auto;
+            right: 1px;
+        }
+        @include b(input-text){
+            border-radius: 3px 0 0 3px;
+            float: left;
+            border-left: 1px solid transparent;
+            border-right: 0;
+            margin-right: 0;
+        }
+    }
+}
+@include b(input-relative-wrap){
+    position: relative;
+}
+@include b(textarea-common){
+    position: relative;
+    display: inline-block;
+    .#{$namespace}-input-textarea {
+        border-radius: 3px 3px 0 0;
+        box-sizing: border-box;
+        resize: none;
+        padding: 5px 10px;
+        border: 1px solid $--color-border-button;
+        border-bottom: 0;
+        outline: 0;
+        overflow: auto;
+        vertical-align: top;
+        color: $--color-text-primary;
+        font-size: 14px;
+        line-height: 1.5;
+        &:hover {
+            border-color: $--color-grey;
+            border-bottom-color: $--color-border-button;
+            outline: 0;
+        }
+        &:focus {
+            border-color: $--color-blue;
+            border-bottom-color: $--color-border-button;
+            outline: 0;
+        }
+        &:hover + .#{$namespace}-field {
+            border-color: $--color-grey;
+            border-top-color: $--color-border-button;
+            outline: 0;
+        }
+        &:focus + .#{$namespace}-field {
+            border-color: $--color-blue;
+            border-top-color: $--color-border-button;
+            outline: 0;
+            .#{$namespace}-field-num{
+                color: $--color-text-primary;
+            }
+        }
+        &::-webkit-input-placeholder {
+            color: $--color-text-placeholder;
+        }
+        &:-moz-placeholder {
+            color: $--color-text-placeholder;
+        }
+        &::-moz-placeholder {
+            color: $--color-text-placeholder;
+        }
+        &:-ms-input-placeholder {
+            color: $--color-text-placeholder;
+        }
+        @include when(error){
+            border-color: $--input-error-border-color;
+            & + .#{$namespace}-field{
+                border-color: $--input-error-border-color;
+            }
+        }
+        @include m(length-error){
+            & + .#{$namespace}-field{
+                .#{$namespace}-field-num{
+                    color: $--color-red;
+                }
+            }
+            &:focus + .#{$namespace}-field{
+                .#{$namespace}-field-num{
+                    color: $--color-red;
+                }
+            }
+        }
+    }
+    .#{$namespace}-field {
+        padding: 8px 10px;
+        border-width: 0 1px 1px 1px;
+        border-style: solid;
+        border-color: $--color-border-button;
+        border-radius: 0 0 3px 3px;
+        margin-top: -1px;
+        .#{$namespace}-field-length {
+            text-align: right;
+            color: $--color-text-placeholder;
+        }
+    }
+}
+
+
+
+
+@include b(input-radio){
+    @include input-common();
+    .#{$namespace}-input-wrap{
+        color: $--color-text-primary;
+    }
+
+    input[type="radio"] {
+        & + .#{$namespace}-input-ctnr {
+            width: 14px;
+            height: 14px;
+            border: 1px solid $--color-grey;
+            border-radius: 50%;
+            background-color: $--color-white;
+            margin-right: 5px;
+        }
+        &:hover + .#{$namespace}-input-ctnr {
+            border-color: $--radio-hover-border-color;
+            background-color: $--color-white;
+        }
+        &:hover + .#{$namespace}-input-ctnr + .#{$namespace}-input-label {
+            cursor: pointer;
+        }
+
+        &[disabled] + .#{$namespace}-input-ctnr,
+        &.disabled + .#{$namespace}-input-ctnr {
+            border-color:$--radio-disabled-bg-color;
+            background-color: $--color-white;
+            cursor: not-allowed;
+        }
+        &[disabled] + .#{$namespace}-input-ctnr + .#{$namespace}-input-label,
+        &.disabled + .#{$namespace}-input-ctnr + .#{$namespace}-input-label {
+            cursor: not-allowed;
+        }
+        &:checked + .#{$namespace}-input-ctnr {
+            border-color: $--color-blue;
+            background-color: $--color-white;
+            position: relative;
+            &:after {
+                content: "";
+                display: block;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: $--color-blue;
+                margin-left: 1px;
+                margin-top: 1px;
+                transition: all 0.1s ease-in;
+            }
+        }
+        &:checked:hover + .#{$namespace}-input-ctnr {}
+        &[disabled]:checked + .#{$namespace}-input-ctnr,
+        &.disabled:checked + .#{$namespace}-input-ctnr {
+            border-color: $--radio-disabled-bg-color;
+            background-color: $--color-white;
+            &:after {
+                background-color: $--radio-disabled-bg-color;
+            }
+        }
+    }
+}
+
+@include b(input-tag){
+    @include input-common();
+    @include max-screen(1000000px) {
+        .#{$namespace}-input-wrap {
+            margin-top: 0;
+        }
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+        &:hover + .#{$namespace}-input-ctnr {
+            border: 1px solid $--radio-label-border-hover-color;
+            color: $--color-text-regular;
+        }
+        & + .#{$namespace}-input-ctnr {
+            border-radius: 3px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        @include max-screen(1000000px) {
+            & + .#{$namespace}-input-ctnr {
+                line-height: 18px;
+                padding: 5px 10px;
+                border: 1px solid $--color-border-button;
+                color: $--color-grey;
+                border-radius: 4px;
+                display: inline-block;
+                vertical-align: middle;
+                // *display: inline;
+                cursor: pointer;
+                position: relative;
+                box-sizing: border-box;
+                margin-top: 0;
+            }
+            & + .#{$namespace}-input-ctnr.cut {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            &:checked + .#{$namespace}-input-ctnr {
+                border: 1px solid $--color-blue;
+                color: $--color-text-regular;
+                &:after {
+                    display: block;
+                    position: absolute;
+                    right: 2px;
+                    bottom: 2px;
+                    content: "";
+                    width: 3px;
+                    height: 7px;
+                    border-width: 0 1px 1px 0;
+                    border-style: solid;
+                    border-color: $--color-white;
+                    -webkit-transform: rotate(32deg);
+                    transform: rotate(32deg);
+                }
+                &:before {
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    content: "";
+                    width: 0px;
+                    height: 0px;
+                    border-width: 7px;
+                    border-style: solid;
+                    border-color: transparent $--color-blue $--color-blue transparent;
+                    border-radius: 0 0 2px 0;
+                }
+            }
+
+            &[disabled] + .#{$namespace}-input-ctnr {
+                border-color: $--color-border-button;
+                color: $--font-color-disabled-base;
+                background: $--radio-label-disabled-bg-color;
+                cursor: not-allowed;
+            }
+            &[disabled]:checked + .#{$namespace}-input-ctnr,
+            &.disabled:checked + .#{$namespace}-input-ctnr {
+                background: $--color-white;
+                color: $--color-grey;
+                border-color: $--radio-label-disabled-border-color;
+                &:before {
+                    border-color: transparent #8ab8e6 #8ab8e6 transparent;
+                }
+            }
+        }
+
+    }
+
+    @include max-screen(1000000px) {
+        .#{$namespace}-input-wrap-small {
+            input[type="checkbox"],
+            input[type="radio"] {
+                & + .#{$namespace}-input-ctnr {
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+}
+
+// 复选框
+@include b(input-checkbox){
+    @include input-common();
+    .#{$namespace}-input-wrap{
+        color: $--color-text-primary;
+    }
+
+    input[type="checkbox"] {
+        &:hover + .#{$namespace}-input-ctnr {
+            border-color: $--radio-hover-border-color;
+            background-color: $--color-white;
+        }
+        &:hover + .#{$namespace}-input-ctnr + .#{$namespace}-input-label {
+            cursor: pointer;
+        }
+        & + .#{$namespace}-input-ctnr {
+            width: 14px;
+            height: 14px;
+            border: 1px solid $--color-grey;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        &[disabled] + .#{$namespace}-input-ctnr,
+        &.disabled + .#{$namespace}-input-ctnr {
+            border-color: $--radio-disabled-bg-color;
+            background-color: $--color-white;
+            cursor: not-allowed;
+        }
+        &[disabled] + .#{$namespace}-input-ctnr + .#{$namespace}-input-label,
+        &.disabled + .#{$namespace}-input-ctnr + .#{$namespace}-input-label {
+            cursor: not-allowed;
+        }
+        &:checked + .#{$namespace}-input-ctnr {
+            border-color: $--color-blue;
+            background-color: $--color-blue;
+            position: relative;
+            &:before{
+                content: "";
+                display: block;
+                width: 7px;
+                height: 2px;
+                position: absolute;
+                left: 0px;
+                top: 8px;
+                transform: rotate(45deg);
+                transition: all 0.1s ease-in;
+                background: $--color-white;
+                border-radius: 1px;
+            }
+            &:after {
+                content: "";
+                display: block;
+                width: 11px;
+                height: 2px;
+                background: $--color-white;
+                position: absolute;
+                left: 3.5px;
+                top: 6px;
+                transform: rotate(-45deg);
+                transition: all 0.1s ease-in;
+                border-radius: 1px;
+            }
+        }
+        &:checked:hover + .#{$namespace}-input-ctnr{}
+        &[disabled]:checked + .#{$namespace}-input-ctnr,
+        &.disabled:checked + .#{$namespace}-input-ctnr {
+            border-color:  $--radio-disabled-bg-color;
+            background-color: $--radio-disabled-bg-color;
+            &:after {
+                border-color: $--color-white;
+            }
+        }
+    }
+}
+
+
+@mixin new-input-common(){
+    user-select: none;
+
+    .#{$namespace}-input-wrap {
+        background-color: $--color-white;
+        font-weight: normal;
+
+        display: inline-flex;
+
+        position: relative;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        & + .#{$namespace}-input-ctnr {
+            display: none;
+        }
+
+        @include max-screen(1000000px) {
+            width: 0;
+            height: 0;
+
+            left: 0;
+            top: 0;
+            position: absolute;
+
+            opacity: 0;
+
+            & + .#{$namespace}-input-ctnr {
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+
+                cursor: pointer;
+                transition: all 0.1s ease-in;
+            }
+        }
+    }
+}
+
+// Switch
+@include b('input-switch') {
+    @include new-input-common();
+
+    input[type="checkbox"] {
+        & + .#{$namespace}-input-ctnr {
+            padding: 2px 3px;
+            width: 48px;
+            border-radius: $--font-size-base;
+            background: $--color-text-placeholder;
+
+            &:before {
+                content: "";
+                width: 0;
+
+                flex-shrink: 0;
+
+                opacity: 0;
+
+                transition: all 0.1s ease-out;
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+
+                border-radius: 50%;
+
+                background-color: $--color-white;
+            }
+        }
+
+        &:checked + .#{$namespace}-input-ctnr {
+            background-color: $--color-blue;
+
+            &:before {
+                flex-grow: 1;
+            }
+        }
+
+        $disabled-color: #e4e4e4;
+
+        &[disabled] + .#{$namespace}-input-ctnr,
+        &.disabled + .#{$namespace}-input-ctnr {
+            background-color: $disabled-color;
+            cursor: not-allowed;
+        }
+
+
+        &[disabled]:checked + .#{$namespace}-input-ctnr,
+        &.disabled:checked + .#{$namespace}-input-ctnr {
+            background-color: rgba(46, 138, 230, .5);
+        }
+    }
+}

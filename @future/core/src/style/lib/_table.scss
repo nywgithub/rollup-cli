@@ -1,0 +1,44 @@
+@include b(table) {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+    color: #555;
+    th,td{
+        padding: 20px 10px;
+        border-bottom: 1px solid $--color-border-module;
+        font-size: 14px;
+    }
+    @include when(base){
+        th{
+            color: #888;
+            font-weight: normal;
+        }
+    }
+    @include when(normal){
+
+        th{
+            background: $--color-background-regular;
+            font-weight: bold;
+        }
+        th,td{
+            padding: 10px;
+            border: 1px solid $--color-border-list;
+        }
+    }
+    @include when(hover){
+        tr:hover{
+            td{
+                background: rgba(229,242,255,0.50);
+            }
+        }
+    }
+    @include when(stripe){
+        tr:nth-child(2n - 1) td {
+            background: $--color-background-regular;
+        }
+    }
+    
+}

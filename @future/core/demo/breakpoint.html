@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>断点</title>
+    <link rel="stylesheet" href="../dist/style/future.css">
+    <link rel="stylesheet" href="demo.css">
+    <style>
+        :root {
+            --breakPointText: '';
+            --barWidth: 0%;
+            --barBackground: #000;
+            --red: #2E8AE6;
+            --orange: #2E8AE6;
+            --green: #2E8AE6;
+        }
+        .demo-breakpoint-bar{
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #efefef;
+            border-radius: 10px;
+            font-size: 48px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        .demo-breakpoint-bar:after {
+            display: block;
+            content: var(--breakPointText);
+            position: relative;
+        }
+        .demo-breakpoint-bar:before{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: block;
+            content: '';
+            height: 3px;
+            width: var(--barWidth);
+            background: var(--barBackground);
+            transition: all .3s;
+        }
+        @media only screen and (max-width: 359px){
+            .demo-breakpoint-bar {
+                --breakPointText: '~359';
+                --barWidth: 0;
+                --barBackground: var(--red);
+            }
+        }
+        @media only screen and (min-width: 360px){
+            .demo-breakpoint-bar {
+                --breakPointText: '360~479';   
+                --barWidth: 14%;
+                --barBackground: var(--red);
+            }
+        }
+        @media only screen and (min-width: 480px){
+            .demo-breakpoint-bar {
+                --breakPointText: '480~767';   
+                --barWidth: 28%;
+                --barBackground: var(--orange);
+            }
+        }
+        @media only screen and (min-width: 768px){
+            .demo-breakpoint-bar {
+                --breakPointText: '768~1023';  
+                --barWidth: 42%;
+                --barBackground: var(--orange); 
+            }
+        }
+        @media only screen and (min-width: 1024px){
+            .demo-breakpoint-bar {
+                --breakPointText: '1024~1279';   
+                --barWidth: 56%;
+                --barBackground: var(--green);
+            }
+        }
+        @media only screen and (min-width: 1280px){
+            .demo-breakpoint-bar {
+                --breakPointText: '1280~1439';   
+                --barWidth: 70%;
+                --barBackground: var(--green);
+            }
+        }
+        @media only screen and (min-width: 1440px){
+            .demo-breakpoint-bar {
+                --breakPointText: '1440~1599';   
+                --barWidth: 85%;
+                --barBackground: var(--green);
+            }
+        }
+        @media only screen and (min-width: 1600px){
+            .demo-breakpoint-bar {
+                --breakPointText: '1600~';   
+                --barWidth: 100%;
+                --barBackground: var(--green);
+            }
+        }
+        .demo-breakpoint-tip{
+            margin-top:10px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .demo-breakpoint-scale-list{
+            position: relative;
+            border-left: 2px solid transparent;
+            border-right: 2px solid transparent;
+        }
+        .demo-breakpoint-scale-item{
+            position: absolute;
+            top: 0;
+            left: 14%;
+            width: 0;
+            height: 2px;
+            margin-left: -1px;
+            border-left: 2px solid #ccc;
+        }
+        .demo-breakpoint-scale-item:nth-child(1){
+            left: 14%;
+        }
+        .demo-breakpoint-scale-item:nth-child(2){
+            left: 28%;
+        }
+        .demo-breakpoint-scale-item:nth-child(3){
+            left: 42%;
+        }
+        .demo-breakpoint-scale-item:nth-child(4){
+            left: 56%;
+        }
+        .demo-breakpoint-scale-item:nth-child(5){
+            left: 70%;
+        }
+        .demo-breakpoint-scale-item:nth-child(6){
+            left: 85%;
+        }
+        .demo-breakpoint-scale-item:nth-child(7){
+            left: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <h3>断点</h3>
+        <div class="demo-breakpoint-bar">
+        </div>
+        <div class="demo-breakpoint-scale-list">
+            <div class="demo-breakpoint-scale-item"></div>
+            <div class="demo-breakpoint-scale-item"></div>
+            <div class="demo-breakpoint-scale-item"></div>
+            <div class="demo-breakpoint-scale-item"></div>
+            <div class="demo-breakpoint-scale-item"></div>
+            <div class="demo-breakpoint-scale-item"></div>
+        </div>
+        <div class="demo-breakpoint-tip">
+            浏览器宽度：<span class="J-clientWidth"></span>
+            <script>
+                window.onresize = function(){
+                    document.querySelectorAll('.J-clientWidth')[0].innerText=document.documentElement.clientWidth;
+                }
+                window.onresize();
+            </script>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

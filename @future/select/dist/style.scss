@@ -1,0 +1,1785 @@
+/* 命名空间
+--------------------------*/
+$namespace: 'ft' !default;
+
+/* BEF修饰符
+--------------------------*/
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;
+
+/* 版本号
+--------------------------*/
+$version-number: '1.0.0';
+
+/* Color
+-------------------------- */
+$--color-white: #FFFFFF !default;
+$--color-black: #000000 !default;
+//品牌色
+$--color-red: #E64545 !default;
+$--color-yellow: #FF9500 !default;
+$--color-blue: #2E8AE6 !default;
+$--color-green: #13BF13 !default;
+//其他颜色
+$--color-cyan: #16B8D9 !default;
+$--color-carmine: #F24981 !default;
+$--color-violet: #B852CC !default;
+$--color-cornflowerblue: #7373E6 !default;
+$--color-graphite: #6C89A6 !default;
+$--color-grey: #888 !default;
+//border分割线
+$--color-border-module: #E6ECF2 !default;
+$--color-border-list: #DAE0E6 !default;
+$--color-border-button: #CED3D9 !default;
+//文字色
+$--color-text-primary: #222 !default;
+$--color-text-regular: #555 !default;
+$--color-text-secondary: $--color-grey !default;
+$--color-text-placeholder: #B3B3B3 !default;
+//背景色
+$--color-background-base: #F0F1F2 !default;
+$--color-background-regular: #F5F7FA !default;
+
+/* Typography
+--------------------------*/
+$--fonts-path: '../assets/fonts' !default;
+$--font-size-extra-large: 20px !default;
+$--font-size-large: 18px !default;
+$--font-size-medium: 16px !default;
+$--font-size-base: 14px !default;
+$--font-size-small: 13px !default;
+$--font-size-extra-small: 12px !default;
+$--font-weight-primary: 500 !default;
+$--font-weight-secondary: 100 !default;
+$--font-line-height-primary: 24px !default;
+$--font-line-height-secondary: 16px !default;
+$--font-color-disabled-base: #B3B3B3 !default;
+
+/* 圆角
+--------------------------*/
+$--border-radius-base: 4px !default;
+$--border-radius-small: 2px !default;
+$--border-radius-large: 10px !default;
+$--border-radius-circle: 100% !default;
+$--border-radius-zero: 0 !default;
+
+/* 步骤条
+--------------------------*/
+$--stepbar-color: $--color-blue !default;
+
+/* 头像
+--------------------------*/
+$--avatar-size: (
+    'lg': 80,
+    'md': 60,
+    'sm': 40
+) !default;
+
+$--spacing-list: 3,
+5,
+10,
+15,
+20,
+30,
+40,
+50;
+
+/* tag
+--------------------------*/
+$--tag-color: ("red": $--color-red,
+    "yellow": $--color-yellow,
+    "blue": $--color-blue,
+    "green": $--color-green,
+    "cyan": $--color-cyan,
+    "carmine": $--color-carmine,
+    "violet": $--color-violet,
+    "cornflowerblue": $--color-cornflowerblue,
+    "graphite": $--color-graphite,
+    "grey": $--color-grey);
+
+/* Break-point
+--------------------------*/
+$--number-of-grids: 24;
+$--xxs: 360px !default;
+$--xs: 480px !default;
+$--sm: 768px !default;
+$--md: 1024px !default;
+$--lg: 1280px !default;
+$--xl: 1440px !default;
+$--xxl: 1600px !default;
+
+$--breakpoints: ('xxxs' : (max-width: $--xxs - 1),
+    'xxs' : (min-width: $--xxs),
+    'xs' : (min-width: $--xs),
+    'sm' : (min-width: $--sm),
+    'md' : (min-width: $--md),
+    'lg' : (min-width: $--lg),
+    'xl' : (min-width: $--xl),
+    'xxl' : (min-width: $--xxl)) !default;
+
+/* alert
+--------------------------*/
+$--alert-type: (
+    "info": $--color-blue "\e002",
+    "success": $--color-green "\e000",
+    "warning": $--color-yellow "\e003",
+    "error": $--color-red "\e001"
+) !default;
+
+/* 输入框
+--------------------------*/
+$--input-disabled-bg: $--color-background-regular !default;
+$--input-error-border-color: $--color-red !default;
+
+/* 单选框
+--------------------------*/
+$--radio-hover-border-color: #2776c6 !default;
+$--radio-checked-hover-color: #0a64bf !default;
+$--radio-disabled-bg-color: #cccccc !default;
+$--radio-label-disabled-bg-color: #edf0f2 !default;
+$--radio-label-border-hover-color: #7d98b3 !default;
+$--radio-label-disabled-border-color: #8ab8e6 !default;
+
+/* result
+--------------------------*/
+$--result-type: (
+    "info": $--color-blue ,
+    "success": $--color-green ,
+    "warning": $--color-yellow ,
+    "error": $--color-red 
+) !default;
+
+/* loading */
+$--loading-size: (
+    "s": 20px 20px,
+    "m": 30px 30px,
+    "l": 40px 40px
+) !default;
+
+/* shadow
+调取某个值，例子：
+.box{
+    box-shadow: map-get(map-get($--shadow-type, "1"), "bottom");
+}
+--------------------------*/
+$--shadow-type: (
+    "1": (
+        "top": 
+            (0px -1px 2px -2px rgba(0,0,0,0.16),
+            0px -3px 6px 0px rgba(0,0,0,0.12),
+            0px -5px 12px 4px rgba(0,0,0,0.09)),
+        "bottom": 
+            (0px 1px 2px -2px rgba(0,0,0,0.16),
+            0px 3px 6px 0px rgba(0,0,0,0.12),
+            0px 5px 12px 4px rgba(0,0,0,0.09)),
+        "left": 
+            (-1px 0px 2px -2px rgba(0,0,0,0.16),
+            -3px 0px 6px 0px rgba(0,0,0,0.12),
+            -5px 0px 12px 4px rgba(0,0,0,0.09)),
+        "right": 
+            (1px 0px 2px -2px rgba(0,0,0,0.16),
+            3px 0px 6px 0px rgba(0,0,0,0.12),
+            5px 0px 12px 4px rgba(0,0,0,0.09)),
+    ),
+    "2": (
+        "top": 
+            (0px -3px 6px -3px rgba(0,0,0,0.12),
+            0px -6px 10px 0px rgba(0,0,0,0.06),
+            0px -9px 16px 8px rgba(0,0,0,0.03)),
+        "bottom": 
+            (0px 3px 6px -3px rgba(0,0,0,0.12),
+            0px 6px 10px 0px rgba(0,0,0,0.06),
+            0px 9px 16px 8px rgba(0,0,0,0.03)),
+        "left": 
+            (-3px 0px 6px -3px rgba(0,0,0,0.12),
+            -6px 0px 10px 0px rgba(0,0,0,0.06),
+            -9px 0px 16px 8px rgba(0,0,0,0.03)),
+        "right": 
+            (3px 0px 6px -3px rgba(0,0,0,0.12),
+            6px 0px 10px 0px rgba(0,0,0,0.06),
+            9px 0px 16px 8px rgba(0,0,0,0.03)),
+    )
+) !default;
+/*  Break-points
+ -------------------------- */
+/*  example:
+    @include res('xs'){
+        body{
+            color:#fff;
+        };
+    }
+
+    out:
+    @media only screen and (min-width: 1440px) {
+        body {
+            color: #fff;
+        }
+    }
+ -------------------------- */
+@mixin res($key, $map: $--breakpoints) {
+
+    // 循环断点Map，如果存在则返回
+    @if map-has-key($map, $key) {
+        @media only screen and #{inspect(map-get($map, $key))} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Undefeined points: `#{$map}`";
+    }
+}
+
+
+/*  文字垂直居中
+ -------------------------- */
+/*  example:
+    .text{
+        height: 300px;
+        @include utils-vertical-center;
+    }
+ -------------------------- */
+@mixin utils-vertical-center {
+    $selector: &;
+
+    @at-root {
+        #{$selector}::after {
+            display: inline-block;
+            content: "";
+            height: 100%;
+            vertical-align: middle
+        }
+    }
+}
+
+
+/*  单行文字截取
+ -------------------------- */
+@mixin utils-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*  禁用选取
+ -------------------------- */
+@mixin utils-user-select($value) {
+    -moz-user-select: $value;
+    -webkit-user-select: $value;
+    -ms-user-select: $value;
+}
+
+
+
+/*  Retina图片
+ -------------------------- */
+/*  example:
+    div.logo { 
+        background: url("logo.png") no-repeat; 
+        @include image-2x("logo2x.png", 100px, 25px); 
+    }
+
+    out:
+    div.logo { 
+        background: url("logo.png") no-repeat; 
+    } 
+    @media (min--moz-device-pixel-ratio: 1.3), 
+    (-o-min-device-pixel-ratio: 2.6 / 2), 
+    (-webkit-min-device-pixel-ratio: 1.3), 
+    (min-device-pixel-ratio: 1.3), 
+    (min-resolution: 1.3dppx) { 
+        div.logo { 
+            background-image: url("logo2x.png"); background-size: 100px 25px; 
+        } 
+    }
+ -------------------------- */
+@mixin image-2x($image, $width, $height) {
+
+    @media (min--moz-device-pixel-ratio: 1.3),
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image);
+        background-size: $width $height;
+    }
+}
+
+
+
+/*  Scrollbar
+ -------------------------- */
+@mixin scroll-bar {
+    $--scrollbar-thumb-background: $--color-border-button;
+    $--scrollbar-track-background: #fff;
+
+    &::-webkit-scrollbar {
+        z-index: 11;
+        width: 6px;
+
+        &:horizontal {
+            height: 6px;
+        }
+
+        &-thumb {
+            border-radius: 5px;
+            width: 6px;
+            background: $--scrollbar-thumb-background;
+        }
+
+        &-corner {
+            background: $--scrollbar-track-background;
+        }
+
+        &-track {
+            background: $--scrollbar-track-background;
+
+            &-piece {
+                background: $--scrollbar-track-background;
+                width: 6px;
+            }
+        }
+    }
+}
+
+
+
+/*  清除浮动
+ -------------------------- */
+/*  example:
+    .article {
+        @include clearfix();
+    }
+
+    out:
+    .article:before,
+    .article:after {
+        content: "";
+        display: table;
+    }
+
+    .article:after {
+        clear: both;
+    }
+ -------------------------- */
+@mixin clearfix() {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/*  css3前缀
+ -------------------------- */
+/*  example:
+    .border_radius { 
+        @include css3(transition, 0.5s); 
+    }
+
+    out:
+    .border_radius { 
+        -webkit-transition: 0.5s; 
+        -moz-transition: 0.5s; 
+        -ms-transition: 0.5s; 
+        -o-transition: 0.5s; 
+        transition: 0.5s; 
+    }
+ -------------------------- */
+@mixin css3($property, $value) {
+
+    @each $prefix in -webkit-,
+    -moz-,
+    -ms-,
+    -o-,
+    '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+
+
+/*  BEM
+ -------------------------- */
+@mixin b($block) {
+    $B: $namespace+'-'+$block !global;
+
+    .#{$B} {
+        @content;
+    }
+}
+
+@mixin e($element) {
+    $E: $element !global;
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $element {
+        $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+    }
+
+    @if hitAllSpecialNestRule($selector){
+        @at-root {
+            #{$selector} {
+                #{$currentSelector} {
+                    @content;
+                }
+            }
+        }
+    } 
+
+    @else {
+        @at-root {
+            #{$currentSelector} {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin m($modifier) {
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $modifier {
+        $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+    }
+    
+    @at-root {
+        #{$currentSelector} {
+            @content;
+        }
+    }
+}
+
+@mixin m-separ($modifier, $E-flag: false) {
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $modifier {
+        $currentSelector: #{$currentSelector + & + '-' + $unit + ","};
+    }
+    @if $E-flag{
+        @at-root {
+            .#{$B}{
+                #{$currentSelector} {
+                    @content;
+                }
+            }
+        }
+
+    } @else {
+        @at-root {
+            #{$currentSelector} {
+                @content;
+            }
+        }
+    }
+}
+
+
+/*  example:
+    .border_radius { 
+        @include configurable-m(m){
+            width: 0px;
+        };
+    }
+
+    out:
+    .border_radius .ft-timeline--m {
+        width: 0px; 
+    }
+ -------------------------- */
+@mixin configurable-m($modifier) {
+    $selector: &;
+    $interpolation: '';
+
+    @at-root {
+        #{$selector} {
+            .#{$B+$interpolation+$modifier-separator+$modifier} {
+                @content;
+            }
+        }
+    }
+}
+
+/*  状态
+ -------------------------- */
+/*  example:
+    div{
+        @include when(selected){
+            color: red;
+        }
+    }
+
+    out:
+    div.is-selected {
+        color: red;
+    }
+ -------------------------- */
+@mixin when($state) {
+    @at-root {
+        &.#{$state-prefix + $state} {
+            @content;
+        }
+    }
+}
+
+/*  伪类
+ -------------------------- */
+/*  example:
+    div{
+        @include pseudo(after){
+            display: inline-block;
+            content: '';
+        }
+    }
+
+    out:
+    div:after {
+        display: inline-block;
+        content: "";
+    }
+ -------------------------- */
+@mixin pseudo($pseudo) {
+    @at-root #{&}#{':#{$pseudo}'} {
+@content
+}
+}
+
+
+
+/*  Placeholder
+ -------------------------- */
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+
+    &::-moz-placeholder {
+        @content
+    }
+
+    &:-ms-input-placeholder {
+        @content
+    }
+}
+/* 命名空间
+--------------------------*/
+$namespace: 'ft' !default;
+
+/* BEF修饰符
+--------------------------*/
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;
+
+/* 版本号
+--------------------------*/
+$version-number: '1.0.0';
+
+/* Color
+-------------------------- */
+$--color-white: #FFFFFF !default;
+$--color-black: #000000 !default;
+//品牌色
+$--color-red: #E64545 !default;
+$--color-yellow: #FF9500 !default;
+$--color-blue: #2E8AE6 !default;
+$--color-green: #13BF13 !default;
+//其他颜色
+$--color-cyan: #16B8D9 !default;
+$--color-carmine: #F24981 !default;
+$--color-violet: #B852CC !default;
+$--color-cornflowerblue: #7373E6 !default;
+$--color-graphite: #6C89A6 !default;
+$--color-grey: #888 !default;
+//border分割线
+$--color-border-module: #E6ECF2 !default;
+$--color-border-list: #DAE0E6 !default;
+$--color-border-button: #CED3D9 !default;
+//文字色
+$--color-text-primary: #222 !default;
+$--color-text-regular: #555 !default;
+$--color-text-secondary: $--color-grey !default;
+$--color-text-placeholder: #B3B3B3 !default;
+//背景色
+$--color-background-base: #F0F1F2 !default;
+$--color-background-regular: #F5F7FA !default;
+
+/* Typography
+--------------------------*/
+$--fonts-path: '../assets/fonts' !default;
+$--font-size-extra-large: 20px !default;
+$--font-size-large: 18px !default;
+$--font-size-medium: 16px !default;
+$--font-size-base: 14px !default;
+$--font-size-small: 13px !default;
+$--font-size-extra-small: 12px !default;
+$--font-weight-primary: 500 !default;
+$--font-weight-secondary: 100 !default;
+$--font-line-height-primary: 24px !default;
+$--font-line-height-secondary: 16px !default;
+$--font-color-disabled-base: #B3B3B3 !default;
+
+/* 圆角
+--------------------------*/
+$--border-radius-base: 4px !default;
+$--border-radius-small: 2px !default;
+$--border-radius-large: 10px !default;
+$--border-radius-circle: 100% !default;
+$--border-radius-zero: 0 !default;
+
+/* 步骤条
+--------------------------*/
+$--stepbar-color: $--color-blue !default;
+
+/* 头像
+--------------------------*/
+$--avatar-size: (
+    'lg': 80,
+    'md': 60,
+    'sm': 40
+) !default;
+
+$--spacing-list: 3,
+5,
+10,
+15,
+20,
+30,
+40,
+50;
+
+/* tag
+--------------------------*/
+$--tag-color: ("red": $--color-red,
+    "yellow": $--color-yellow,
+    "blue": $--color-blue,
+    "green": $--color-green,
+    "cyan": $--color-cyan,
+    "carmine": $--color-carmine,
+    "violet": $--color-violet,
+    "cornflowerblue": $--color-cornflowerblue,
+    "graphite": $--color-graphite,
+    "grey": $--color-grey);
+
+/* Break-point
+--------------------------*/
+$--number-of-grids: 24;
+$--xxs: 360px !default;
+$--xs: 480px !default;
+$--sm: 768px !default;
+$--md: 1024px !default;
+$--lg: 1280px !default;
+$--xl: 1440px !default;
+$--xxl: 1600px !default;
+
+$--breakpoints: ('xxxs' : (max-width: $--xxs - 1),
+    'xxs' : (min-width: $--xxs),
+    'xs' : (min-width: $--xs),
+    'sm' : (min-width: $--sm),
+    'md' : (min-width: $--md),
+    'lg' : (min-width: $--lg),
+    'xl' : (min-width: $--xl),
+    'xxl' : (min-width: $--xxl)) !default;
+
+/* alert
+--------------------------*/
+$--alert-type: (
+    "info": $--color-blue "\e002",
+    "success": $--color-green "\e000",
+    "warning": $--color-yellow "\e003",
+    "error": $--color-red "\e001"
+) !default;
+
+/* 输入框
+--------------------------*/
+$--input-disabled-bg: $--color-background-regular !default;
+$--input-error-border-color: $--color-red !default;
+
+/* 单选框
+--------------------------*/
+$--radio-hover-border-color: #2776c6 !default;
+$--radio-checked-hover-color: #0a64bf !default;
+$--radio-disabled-bg-color: #cccccc !default;
+$--radio-label-disabled-bg-color: #edf0f2 !default;
+$--radio-label-border-hover-color: #7d98b3 !default;
+$--radio-label-disabled-border-color: #8ab8e6 !default;
+
+/* result
+--------------------------*/
+$--result-type: (
+    "info": $--color-blue ,
+    "success": $--color-green ,
+    "warning": $--color-yellow ,
+    "error": $--color-red 
+) !default;
+
+/* loading */
+$--loading-size: (
+    "s": 20px 20px,
+    "m": 30px 30px,
+    "l": 40px 40px
+) !default;
+
+/* shadow
+调取某个值，例子：
+.box{
+    box-shadow: map-get(map-get($--shadow-type, "1"), "bottom");
+}
+--------------------------*/
+$--shadow-type: (
+    "1": (
+        "top": 
+            (0px -1px 2px -2px rgba(0,0,0,0.16),
+            0px -3px 6px 0px rgba(0,0,0,0.12),
+            0px -5px 12px 4px rgba(0,0,0,0.09)),
+        "bottom": 
+            (0px 1px 2px -2px rgba(0,0,0,0.16),
+            0px 3px 6px 0px rgba(0,0,0,0.12),
+            0px 5px 12px 4px rgba(0,0,0,0.09)),
+        "left": 
+            (-1px 0px 2px -2px rgba(0,0,0,0.16),
+            -3px 0px 6px 0px rgba(0,0,0,0.12),
+            -5px 0px 12px 4px rgba(0,0,0,0.09)),
+        "right": 
+            (1px 0px 2px -2px rgba(0,0,0,0.16),
+            3px 0px 6px 0px rgba(0,0,0,0.12),
+            5px 0px 12px 4px rgba(0,0,0,0.09)),
+    ),
+    "2": (
+        "top": 
+            (0px -3px 6px -3px rgba(0,0,0,0.12),
+            0px -6px 10px 0px rgba(0,0,0,0.06),
+            0px -9px 16px 8px rgba(0,0,0,0.03)),
+        "bottom": 
+            (0px 3px 6px -3px rgba(0,0,0,0.12),
+            0px 6px 10px 0px rgba(0,0,0,0.06),
+            0px 9px 16px 8px rgba(0,0,0,0.03)),
+        "left": 
+            (-3px 0px 6px -3px rgba(0,0,0,0.12),
+            -6px 0px 10px 0px rgba(0,0,0,0.06),
+            -9px 0px 16px 8px rgba(0,0,0,0.03)),
+        "right": 
+            (3px 0px 6px -3px rgba(0,0,0,0.12),
+            6px 0px 10px 0px rgba(0,0,0,0.06),
+            9px 0px 16px 8px rgba(0,0,0,0.03)),
+    )
+) !default;
+
+@mixin picker($namespace) {
+    .#{$namespace} {
+        min-width: 80px;
+        border: 1px solid $--color-border-button;
+        border-radius: 4px;
+        background: $--color-white;
+
+        color: $--color-text-primary;
+        font-size: $--font-size-base;
+        line-height: 1.5;
+
+        display: inline-block;
+
+        position: relative;
+
+        &-none-border {
+            border: 0 none;
+        }
+
+        &.hover, &:hover {
+            border-color: $--color-grey;
+        }
+
+        &.focus, &.open {
+            border-color: $--color-blue;
+        }
+
+        &.error {
+            border-color: $--color-red;
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+            color: $--font-color-disabled-base;
+            border: 1px solid $--color-border-button;
+            background: $--color-background-regular;
+
+            &.hover, &:hover {
+                border-color: $--color-border-button;
+            }
+
+        }
+    }
+
+
+    .#{$namespace}-input {
+        padding: 5px 10px;
+        width: 100%;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+
+        @at-root .#{$namespace}.disabled & {
+            cursor: not-allowed;
+        }
+    }
+
+    .#{$namespace}-input-inner {
+        width: 0;
+        flex-grow: 1;
+
+        white-space: nowrap;
+        overflow: hidden;
+        user-select: none;
+
+
+        @at-root .#{$namespace}.disabled & {
+            cursor: not-allowed;
+        }
+
+        @at-root .is-placeholder & {
+            color: $--color-grey;
+        }
+
+        @at-root .#{$namespace}.disabled .is-placeholder & {
+            color: $--color-text-placeholder;
+        }
+    }
+
+    .#{$namespace}-tools {
+        line-height: 1;
+        box-sizing: content-box;
+
+        color: $--color-grey;
+        font-size: 0;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .#{$namespace}-arrow {
+        font-size: 20px;
+        transition: transform .2s ease;
+
+        @at-root .#{$namespace}.open & {
+            transform: rotate(180deg);
+        }
+    }
+    .#{$namespace}-clear{
+        font-size: 16px;
+        display: none;
+    }
+
+    .#{$namespace}-with-clear {
+        &:hover {
+            .#{$namespace}-clear {
+                display: block;
+            }
+
+            .#{$namespace}-arrow {
+                display: none;
+            }
+        }
+    }
+
+
+
+    .#{$namespace}-dropdown {
+        margin-top: 2px;
+        min-width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 9px 16px 8px rgba(0, 0, 0, 0.03), 0 6px 10px 0 rgba(0, 0, 0, 0.06), 0 3px 6px -3px rgba(0, 0, 0, 0.12);
+        background: $--color-white;
+
+        overflow: hidden;
+
+        display: none;
+
+        top: 100%;
+        position: absolute;
+        z-index: 66;
+
+
+        @at-root .#{$namespace}.open & {
+            display: block;
+        }
+    }
+}
+
+
+
+@include picker("ft-select");
+
+.ft-select {
+
+    .select-list {
+        max-height: 300px;
+        min-width: 100%;
+
+        overflow: auto;
+
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $--color-text-placeholder;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+    }
+
+    .select-list-wrap {
+        margin: 0;
+        padding: 0;
+        min-width: 100%;
+        *width: 100%;
+
+        list-style: none;
+
+        background: $--color-white;
+    }
+
+    .select-opt {
+        padding: 5px 10px;
+        color: $--color-text-regular;
+        display: block;
+        word-wrap: break-word;
+        text-decoration: none;
+        cursor: pointer;
+        user-select: none;
+
+        &.hide {
+            display: none;
+        }
+
+        &:hover,
+        &.hover,
+        &.selected {
+            color: #2c87e2;
+            background: $--color-background-regular;
+        }
+
+        &.disabled {
+            border: 0 none;
+            cursor: not-allowed;
+            color: $--color-text-placeholder;
+            background: none;
+
+            &:hover {
+                background: none;
+            }
+        }
+
+        &.multiple-opt {
+            display: flex;
+            align-items: center;
+            .ft-checkbox {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .select-optgroup {
+        border-radius: unset;
+
+        & + .select-optgroup {
+            border-top: 1px solid $--color-border-list;
+        }
+
+        .select-optgroup-label {
+            padding: 5px 10px;
+            color: $--font-color-disabled-base;
+            font-size: $--font-size-base;
+            font-weight: bold;
+        }
+        .select-opt {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    .select-group {
+        padding: 0 10px;
+
+        .select-opt {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        &:after {
+            height: 0;
+            content: "";
+            display: block;
+            padding: 0 10px;
+            margin: 5px 0;
+            border-bottom: 1px solid $--color-border-list;
+            box-sizing: border-box;
+        }
+
+        &:last-of-type:after {
+            margin: 0;
+            padding: 0;
+            border: 0 none;
+        }
+    }
+
+    .select-opt-label {
+        padding: 5px 0;
+        font-weight: bold;
+    }
+
+    &.open {
+        z-index: 110;
+
+        .select-arrow {
+            transform: rotate(180deg);
+        }
+
+        .select-list {
+            display: block;
+        }
+    }
+
+    &.top {
+        .select-list {
+            top: auto;
+            bottom: 100%;
+            margin-bottom: 2px;
+            border-bottom: 0 none;
+        }
+    }
+}
+/* 命名空间
+--------------------------*/
+$namespace: 'ft' !default;
+
+/* BEF修饰符
+--------------------------*/
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;
+
+/* 版本号
+--------------------------*/
+$version-number: '1.0.0';
+
+/* Color
+-------------------------- */
+$--color-white: #FFFFFF !default;
+$--color-black: #000000 !default;
+//品牌色
+$--color-red: #E64545 !default;
+$--color-yellow: #FF9500 !default;
+$--color-blue: #2E8AE6 !default;
+$--color-green: #13BF13 !default;
+//其他颜色
+$--color-cyan: #16B8D9 !default;
+$--color-carmine: #F24981 !default;
+$--color-violet: #B852CC !default;
+$--color-cornflowerblue: #7373E6 !default;
+$--color-graphite: #6C89A6 !default;
+$--color-grey: #888 !default;
+//border分割线
+$--color-border-module: #E6ECF2 !default;
+$--color-border-list: #DAE0E6 !default;
+$--color-border-button: #CED3D9 !default;
+//文字色
+$--color-text-primary: #222 !default;
+$--color-text-regular: #555 !default;
+$--color-text-secondary: $--color-grey !default;
+$--color-text-placeholder: #B3B3B3 !default;
+//背景色
+$--color-background-base: #F0F1F2 !default;
+$--color-background-regular: #F5F7FA !default;
+
+/* Typography
+--------------------------*/
+$--fonts-path: '../assets/fonts' !default;
+$--font-size-extra-large: 20px !default;
+$--font-size-large: 18px !default;
+$--font-size-medium: 16px !default;
+$--font-size-base: 14px !default;
+$--font-size-small: 13px !default;
+$--font-size-extra-small: 12px !default;
+$--font-weight-primary: 500 !default;
+$--font-weight-secondary: 100 !default;
+$--font-line-height-primary: 24px !default;
+$--font-line-height-secondary: 16px !default;
+$--font-color-disabled-base: #B3B3B3 !default;
+
+/* 圆角
+--------------------------*/
+$--border-radius-base: 4px !default;
+$--border-radius-small: 2px !default;
+$--border-radius-large: 10px !default;
+$--border-radius-circle: 100% !default;
+$--border-radius-zero: 0 !default;
+
+/* 步骤条
+--------------------------*/
+$--stepbar-color: $--color-blue !default;
+
+/* 头像
+--------------------------*/
+$--avatar-size: (
+    'lg': 80,
+    'md': 60,
+    'sm': 40
+) !default;
+
+$--spacing-list: 3,
+5,
+10,
+15,
+20,
+30,
+40,
+50;
+
+/* tag
+--------------------------*/
+$--tag-color: ("red": $--color-red,
+    "yellow": $--color-yellow,
+    "blue": $--color-blue,
+    "green": $--color-green,
+    "cyan": $--color-cyan,
+    "carmine": $--color-carmine,
+    "violet": $--color-violet,
+    "cornflowerblue": $--color-cornflowerblue,
+    "graphite": $--color-graphite,
+    "grey": $--color-grey);
+
+/* Break-point
+--------------------------*/
+$--number-of-grids: 24;
+$--xxs: 360px !default;
+$--xs: 480px !default;
+$--sm: 768px !default;
+$--md: 1024px !default;
+$--lg: 1280px !default;
+$--xl: 1440px !default;
+$--xxl: 1600px !default;
+
+$--breakpoints: ('xxxs' : (max-width: $--xxs - 1),
+    'xxs' : (min-width: $--xxs),
+    'xs' : (min-width: $--xs),
+    'sm' : (min-width: $--sm),
+    'md' : (min-width: $--md),
+    'lg' : (min-width: $--lg),
+    'xl' : (min-width: $--xl),
+    'xxl' : (min-width: $--xxl)) !default;
+
+/* alert
+--------------------------*/
+$--alert-type: (
+    "info": $--color-blue "e002",
+    "success": $--color-green "e000",
+    "warning": $--color-yellow "e003",
+    "error": $--color-red "e001"
+) !default;
+
+/* 输入框
+--------------------------*/
+$--input-disabled-bg: $--color-background-regular !default;
+$--input-error-border-color: $--color-red !default;
+
+/* 单选框
+--------------------------*/
+$--radio-hover-border-color: #2776c6 !default;
+$--radio-checked-hover-color: #0a64bf !default;
+$--radio-disabled-bg-color: #cccccc !default;
+$--radio-label-disabled-bg-color: #edf0f2 !default;
+$--radio-label-border-hover-color: #7d98b3 !default;
+$--radio-label-disabled-border-color: #8ab8e6 !default;
+
+/* result
+--------------------------*/
+$--result-type: (
+    "info": $--color-blue ,
+    "success": $--color-green ,
+    "warning": $--color-yellow ,
+    "error": $--color-red 
+) !default;
+
+/* loading */
+$--loading-size: (
+    "s": 20px 20px,
+    "m": 30px 30px,
+    "l": 40px 40px
+) !default;
+
+/* shadow
+调取某个值，例子：
+.box{
+    box-shadow: map-get(map-get($--shadow-type, "1"), "bottom");
+}
+--------------------------*/
+$--shadow-type: (
+    "1": (
+        "top": 
+            (0px -1px 2px -2px rgba(0,0,0,0.16),
+            0px -3px 6px 0px rgba(0,0,0,0.12),
+            0px -5px 12px 4px rgba(0,0,0,0.09)),
+        "bottom": 
+            (0px 1px 2px -2px rgba(0,0,0,0.16),
+            0px 3px 6px 0px rgba(0,0,0,0.12),
+            0px 5px 12px 4px rgba(0,0,0,0.09)),
+        "left": 
+            (-1px 0px 2px -2px rgba(0,0,0,0.16),
+            -3px 0px 6px 0px rgba(0,0,0,0.12),
+            -5px 0px 12px 4px rgba(0,0,0,0.09)),
+        "right": 
+            (1px 0px 2px -2px rgba(0,0,0,0.16),
+            3px 0px 6px 0px rgba(0,0,0,0.12),
+            5px 0px 12px 4px rgba(0,0,0,0.09)),
+    ),
+    "2": (
+        "top": 
+            (0px -3px 6px -3px rgba(0,0,0,0.12),
+            0px -6px 10px 0px rgba(0,0,0,0.06),
+            0px -9px 16px 8px rgba(0,0,0,0.03)),
+        "bottom": 
+            (0px 3px 6px -3px rgba(0,0,0,0.12),
+            0px 6px 10px 0px rgba(0,0,0,0.06),
+            0px 9px 16px 8px rgba(0,0,0,0.03)),
+        "left": 
+            (-3px 0px 6px -3px rgba(0,0,0,0.12),
+            -6px 0px 10px 0px rgba(0,0,0,0.06),
+            -9px 0px 16px 8px rgba(0,0,0,0.03)),
+        "right": 
+            (3px 0px 6px -3px rgba(0,0,0,0.12),
+            6px 0px 10px 0px rgba(0,0,0,0.06),
+            9px 0px 16px 8px rgba(0,0,0,0.03)),
+    )
+) !default;
+/*  Break-points
+ -------------------------- */
+/*  example:
+    @include res('xs'){
+        body{
+            color:#fff;
+        };
+    }
+
+    out:
+    @media only screen and (min-width: 1440px) {
+        body {
+            color: #fff;
+        }
+    }
+ -------------------------- */
+@mixin res($key, $map: $--breakpoints) {
+
+    // 循环断点Map，如果存在则返回
+    @if map-has-key($map, $key) {
+        @media only screen and #{inspect(map-get($map, $key))} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Undefeined points: `#{$map}`";
+    }
+}
+
+
+/*  文字垂直居中
+ -------------------------- */
+/*  example:
+    .text{
+        height: 300px;
+        @include utils-vertical-center;
+    }
+ -------------------------- */
+@mixin utils-vertical-center {
+    $selector: &;
+
+    @at-root {
+        #{$selector}::after {
+            display: inline-block;
+            content: "";
+            height: 100%;
+            vertical-align: middle
+        }
+    }
+}
+
+
+/*  单行文字截取
+ -------------------------- */
+@mixin utils-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*  禁用选取
+ -------------------------- */
+@mixin utils-user-select($value) {
+    -moz-user-select: $value;
+    -webkit-user-select: $value;
+    -ms-user-select: $value;
+}
+
+
+
+/*  Retina图片
+ -------------------------- */
+/*  example:
+    div.logo { 
+        background: url("logo.png") no-repeat; 
+        @include image-2x("logo2x.png", 100px, 25px); 
+    }
+
+    out:
+    div.logo { 
+        background: url("logo.png") no-repeat; 
+    } 
+    @media (min--moz-device-pixel-ratio: 1.3), 
+    (-o-min-device-pixel-ratio: 2.6 / 2), 
+    (-webkit-min-device-pixel-ratio: 1.3), 
+    (min-device-pixel-ratio: 1.3), 
+    (min-resolution: 1.3dppx) { 
+        div.logo { 
+            background-image: url("logo2x.png"); background-size: 100px 25px; 
+        } 
+    }
+ -------------------------- */
+@mixin image-2x($image, $width, $height) {
+
+    @media (min--moz-device-pixel-ratio: 1.3),
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image);
+        background-size: $width $height;
+    }
+}
+
+
+
+/*  Scrollbar
+ -------------------------- */
+@mixin scroll-bar {
+    $--scrollbar-thumb-background: $--color-border-button;
+    $--scrollbar-track-background: #fff;
+
+    &::-webkit-scrollbar {
+        z-index: 11;
+        width: 6px;
+
+        &:horizontal {
+            height: 6px;
+        }
+
+        &-thumb {
+            border-radius: 5px;
+            width: 6px;
+            background: $--scrollbar-thumb-background;
+        }
+
+        &-corner {
+            background: $--scrollbar-track-background;
+        }
+
+        &-track {
+            background: $--scrollbar-track-background;
+
+            &-piece {
+                background: $--scrollbar-track-background;
+                width: 6px;
+            }
+        }
+    }
+}
+
+
+
+/*  清除浮动
+ -------------------------- */
+/*  example:
+    .article {
+        @include clearfix();
+    }
+
+    out:
+    .article:before,
+    .article:after {
+        content: "";
+        display: table;
+    }
+
+    .article:after {
+        clear: both;
+    }
+ -------------------------- */
+@mixin clearfix() {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/*  css3前缀
+ -------------------------- */
+/*  example:
+    .border_radius { 
+        @include css3(transition, 0.5s); 
+    }
+
+    out:
+    .border_radius { 
+        -webkit-transition: 0.5s; 
+        -moz-transition: 0.5s; 
+        -ms-transition: 0.5s; 
+        -o-transition: 0.5s; 
+        transition: 0.5s; 
+    }
+ -------------------------- */
+@mixin css3($property, $value) {
+
+    @each $prefix in -webkit-,
+    -moz-,
+    -ms-,
+    -o-,
+    '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+
+
+/*  BEM
+ -------------------------- */
+@mixin b($block) {
+    $B: $namespace+'-'+$block !global;
+
+    .#{$B} {
+        @content;
+    }
+}
+
+@mixin e($element) {
+    $E: $element !global;
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $element {
+        $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+    }
+
+    @if hitAllSpecialNestRule($selector){
+        @at-root {
+            #{$selector} {
+                #{$currentSelector} {
+                    @content;
+                }
+            }
+        }
+    } 
+
+    @else {
+        @at-root {
+            #{$currentSelector} {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin m($modifier) {
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $modifier {
+        $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+    }
+    
+    @at-root {
+        #{$currentSelector} {
+            @content;
+        }
+    }
+}
+
+@mixin m-separ($modifier, $E-flag: false) {
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $modifier {
+        $currentSelector: #{$currentSelector + & + '-' + $unit + ","};
+    }
+    @if $E-flag{
+        @at-root {
+            .#{$B}{
+                #{$currentSelector} {
+                    @content;
+                }
+            }
+        }
+
+    } @else {
+        @at-root {
+            #{$currentSelector} {
+                @content;
+            }
+        }
+    }
+}
+
+
+/*  example:
+    .border_radius { 
+        @include configurable-m(m){
+            width: 0px;
+        };
+    }
+
+    out:
+    .border_radius .ft-timeline--m {
+        width: 0px; 
+    }
+ -------------------------- */
+@mixin configurable-m($modifier) {
+    $selector: &;
+    $interpolation: '';
+
+    @at-root {
+        #{$selector} {
+            .#{$B+$interpolation+$modifier-separator+$modifier} {
+                @content;
+            }
+        }
+    }
+}
+
+/*  状态
+ -------------------------- */
+/*  example:
+    div{
+        @include when(selected){
+            color: red;
+        }
+    }
+
+    out:
+    div.is-selected {
+        color: red;
+    }
+ -------------------------- */
+@mixin when($state) {
+    @at-root {
+        &.#{$state-prefix + $state} {
+            @content;
+        }
+    }
+}
+
+/*  伪类
+ -------------------------- */
+/*  example:
+    div{
+        @include pseudo(after){
+            display: inline-block;
+            content: '';
+        }
+    }
+
+    out:
+    div:after {
+        display: inline-block;
+        content: "";
+    }
+ -------------------------- */
+@mixin pseudo($pseudo) {
+    @at-root #{&}#{':#{$pseudo}'} {
+@content
+}
+}
+
+
+
+/*  Placeholder
+ -------------------------- */
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+
+    &::-moz-placeholder {
+        @content
+    }
+
+    &:-ms-input-placeholder {
+        @content
+    }
+}
+
+$ft-radio-size: 16px !default;
+$ft-radio-inner-size: 12px !default;
+
+.ft-checkbox {
+    margin: 0;
+
+    color: $--color-text-primary;
+    font-weight: normal;
+
+    display: inline-flex;
+    align-items: center;
+
+    vertical-align: middle;
+
+    position: relative;
+
+    user-select: none;
+
+    & + .ft-checkbox {
+        margin-left: 20px;
+    }
+
+    input[type="checkbox"] {
+        margin: 0;
+
+        width: 0;
+        height: 0;
+        left: 0;
+        top: 0;
+        position: absolute;
+        opacity: 0;
+
+        $content-selector: ".ft-checkbox-front";
+
+        & + #{$content-selector} {
+            width: $ft-radio-size;
+            height: $ft-radio-size;
+            border: 1px solid $--color-grey;
+            border-radius: 3px;
+            background-color: $--color-white;
+
+            box-sizing: border-box;
+
+            position: relative;
+
+            transition: all 0.1s ease-in;
+
+            cursor: pointer;
+        }
+
+        &:hover + #{$content-selector} {
+            border-color: $--radio-hover-border-color;
+        }
+
+        &[disabled] + #{$content-selector},
+        &.disabled + #{$content-selector} {
+            border-color: $--radio-disabled-bg-color;
+            cursor: not-allowed;
+        }
+
+        &:checked {
+            & + #{$content-selector} {
+                border-color: $--color-blue;
+                background-color: $--color-blue;
+
+                &:after {
+                    width: 10px;
+                    height: 6px;
+
+                    border: 2px solid #fff;
+                    border-top: 0;
+                    border-right: 0;
+                    box-sizing: border-box;
+
+                    display: block;
+
+                    transition: all 0.1s ease-in;
+
+                    transform: rotate(-45deg);
+
+                    top: 3px;
+                    left: 2px;
+                    position: absolute;
+
+                    content: "";
+                }
+
+            }
+
+            &:hover + #{$content-selector} {
+                border-color: $--radio-checked-hover-color;
+                background-color: $--radio-checked-hover-color;
+            }
+
+            &[disabled],&.disabled {
+                & + #{$content-selector} {
+                    border-color: $--radio-disabled-bg-color;
+                    background-color: $--radio-disabled-bg-color;
+                }
+            }
+        }
+
+        &.is-indeterminate {
+            & + #{$content-selector} {
+                border-color: $--color-blue;
+                background-color: $--color-blue;
+
+                &:after {
+                    width: 11px;
+                    height: 3px;
+
+                    border-radius: $--border-radius-base;
+
+                    background-color: $--color-white;
+
+                    top: 50%;
+                    left: 50%;
+                    position: absolute;
+
+                    transform: translate(-50%, -50%);
+
+                    content: "";
+                }
+            }
+
+            &[disabled] + #{$content-selector} {
+                border-color: $--radio-disabled-bg-color;
+                background-color: $--radio-disabled-bg-color;
+            }
+        }
+
+    }
+
+    .ft-checkbox-front + .ft-checkbox-label {
+        margin-left: 5px;
+    }
+}
+
+.ft-checkbox-group {
+    display: flex;
+    align-items: center;
+}

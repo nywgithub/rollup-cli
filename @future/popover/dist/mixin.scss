@@ -1,0 +1,106 @@
+@import "~@future/core/src/style/base/variables";
+
+$popover-bg-color: $--color-white !default;
+$arrow-size: 6px !default;
+$arrow-color: $popover-bg-color !default;
+
+@mixin popover($namespace){
+    .#{$namespace}[data-animation=fade][data-state=hidden] {
+        opacity: 0;
+    }
+
+    [data-tippy-root] {
+        max-width: calc(100vw - 10px);
+    }
+
+    .#{$namespace} {
+        border-radius: 3px;
+        box-shadow: 0 9px 16px 8px rgba(0, 0, 0, 0.03),
+        0 6px 10px 0 rgba(0, 0, 0, 0.06),
+        0 3px 6px -3px rgba(0, 0, 0, 0.12);
+
+
+        background-color: $popover-bg-color;
+
+        color: $--color-text-regular;
+        font-size: $--font-size-base;
+        line-height: 1.5;
+        white-space: normal;
+
+        outline: 0;
+
+        transition-property: transform, visibility, opacity;
+
+        position: relative;
+    }
+
+    .#{$namespace}[data-placement^=top] > .#{$namespace}-arrow {
+        bottom: 0;
+    }
+
+    .#{$namespace}[data-placement^=top] > .#{$namespace}-arrow:before {
+        bottom: -#{$arrow-size - 1px};
+        left: 0;
+        border-width: $arrow-size $arrow-size 0;
+        border-top-color: initial;
+        transform-origin: center top;
+    }
+
+    .#{$namespace}[data-placement^=bottom] > .#{$namespace}-arrow {
+        top: 0;
+    }
+
+    .#{$namespace}[data-placement^=bottom] > .#{$namespace}-arrow:before {
+        top: -#{$arrow-size - 1px};
+        left: 0;
+        border-width: 0 $arrow-size $arrow-size;
+        border-bottom-color: initial;
+        transform-origin: center bottom;
+    }
+
+    .#{$namespace}[data-placement^=left] > .#{$namespace}-arrow {
+        right: 0
+    }
+
+    .#{$namespace}[data-placement^=left] > .#{$namespace}-arrow:before {
+        border-width: $arrow-size 0 $arrow-size $arrow-size;
+        border-left-color: initial;
+        right: -#{$arrow-size - 1px};
+        transform-origin: center;
+    }
+
+    .#{$namespace}[data-placement^=right] > .#{$namespace}-arrow {
+        left: 0
+    }
+
+    .#{$namespace}[data-placement^=right] > .#{$namespace}-arrow:before {
+        left: -#{$arrow-size - 1px};
+        border-width: $arrow-size $arrow-size $arrow-size 0;
+        border-right-color: initial;
+        transform-origin: center;
+    }
+
+    .#{$namespace}[data-inertia][data-state=visible] {
+        transition-timing-function: cubic-bezier(.54, 1.5, .38, 1.11)
+    }
+
+    .#{$namespace}-arrow {
+        width: #{$arrow-size * 2};
+        height: #{$arrow-size * 2};
+        color: $arrow-color;
+    }
+
+    .#{$namespace}-arrow:before {
+        content: "";
+        position: absolute;
+        border-color: transparent;
+        border-style: solid
+    }
+
+    .#{$namespace}-content {
+        padding: 10px;
+
+        position: relative;
+        z-index: 1
+    }
+}

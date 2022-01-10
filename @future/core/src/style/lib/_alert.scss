@@ -1,0 +1,86 @@
+@include b(alert) {
+    $selector: &;
+    box-sizing: border-box;
+    color: #555;
+    font-size: 14px;
+    line-height: 20px;
+    list-style: none;
+    position: relative;
+    display: flex;
+    // align-items: center;
+    padding: 5px 10px;
+    word-wrap: break-word;
+    border-radius: 4px;
+    &-icon{
+        margin-right: 5px;
+        font-size: 16px;
+    }
+    &-close{
+        font-size: 16px;
+        margin-left: 5px;
+        cursor: pointer;
+        color: #000;
+        opacity: .3;
+        transition: opacity .2s;
+        &:hover{
+            opacity: 1;
+        }
+        &:before{
+            content: "\e00c";
+        }
+    }
+    &-content{
+        flex: 1;
+        min-width: 0;
+    }
+    @include when(inline){
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -moz-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        #{$selector}-content{
+            flex: auto;
+        }
+    }
+    @each $type, $list in $--alert-type {
+        &-#{$type}{
+            background-color: mix($--color-white, nth($list, 1), 85%);
+            #{$selector}-icon{
+                color: nth($list, 1);
+                &:before{
+                    content: unicode(nth($list, 2));
+                }
+            }
+            @include when(dark){
+                background-color: nth($list, 1);
+                color: #fff;
+                #{$selector}-icon{
+                    color: #fff;
+                }
+            }
+            @include when(bubble){
+                background-color: $--color-white;
+                border-radius: 4px;
+                padding: 18px 15px;
+                box-shadow: 0px 9px 16px 8px rgba(0,0,0,0.03), 0px 6px 10px 0px rgba(0,0,0,0.06), 0px 3px 6px -3px rgba(0,0,0,0.12); 
+                font-size: 16px;
+                line-height: 24px;
+                #{$selector}-close{
+                    font-size: 20px;
+                }
+                #{$selector}-icon{
+                    font-size: 32px;
+                    margin-right: 8px;
+                }
+                #{$selector}-content{
+                    color: #222;
+                }
+            }
+        }
+    }
+    & [class*="#{$namespace+'-icon'}"] {
+        font-size: 16px;
+        vertical-align: -10%;
+    }
+}

@@ -1,0 +1,10 @@
+@include b(shadow) {
+    @each $type, $list in $--shadow-type {
+        @each $direction, $value in $list {
+            //.ft-shadow-2-left
+            &-#{$type}-#{$direction}{
+                box-shadow: $value;
+            }
+        }
+    }
+}

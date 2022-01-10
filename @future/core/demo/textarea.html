@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本框</title>
+    <link rel="stylesheet" href="../dist/style/future.css">
+    <link rel="stylesheet" href="demo.css">
+    <style></style>
+</head>
+
+<body>
+<div class="grid">
+    <h3>基础文本框</h3>
+    <div class="demo-layout demo-block">
+        <div class="source">
+            <div class="ft-textarea-common" >
+                <textarea class="ft-input-textarea" cols="46" rows="7" placeholder="请输入"></textarea>
+                <div class="ft-field">
+                    <div class="ft-field-length">
+                        <span class="ft-field-num">0</span> / 200
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3>基础文本框文本超出报错</h3>
+    <div class="demo-layout demo-block">
+        <div class="source">
+            <div class="ft-textarea-common" >
+                <textarea class="ft-input-textarea is-error ft-input-textarea--length-error" cols="46" rows="7">12345678901</textarea>
+                <div class="ft-field">
+                    <div class="ft-field-length">
+                        <span class="ft-field-num">11</span> / 10
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3>基础文本框其他报错</h3>
+    <div class="demo-layout demo-block">
+        <div class="source">
+            <div class="ft-textarea-common" >
+                <textarea class="ft-input-textarea is-error" cols="46" rows="7"></textarea>
+                <div class="ft-field">
+                    <div class="ft-field-length">
+                        <span class="ft-field-num">0</span> / 10
+                    </div>
+                </div>
+            </div>
+            <div class="ft-input-text__feedback">
+                <label class="ft-input-text--error">Please enter the product name.</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

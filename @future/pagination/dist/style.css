@@ -1,0 +1,73 @@
+.ft-pagination {
+    display: flex;
+    align-items: stretch
+}
+
+.ft-pagination.is-simple .ft-pagination-item {
+    padding: 7.5px 10px
+}
+
+.ft-pagination-item {
+    padding: 5px 10px;
+    border: 1px solid #dae0e6;
+    background: #fff;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.5;
+    text-decoration: none;
+    display: inline-flex
+}
+
+.ft-pagination-item+.ft-pagination-item {
+    border-left: none
+}
+
+.ft-pagination-item:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+
+.ft-pagination-item:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+}
+
+.ft-pagination-item:hover {
+    color: #222;
+    background: #f5f7fa;
+    text-decoration: none
+}
+
+.ft-pagination-item.is-disabled,
+.ft-pagination-item.is-disabled:hover {
+    cursor: default;
+    background: #f5f7fa;
+    border: 1px solid #ced3d9;
+    color: #b3b3b3
+}
+
+.ft-pagination-item.is-active,
+.ft-pagination-item.is-more {
+    border: none;
+    background: unset
+}
+
+.ft-pagination-item.is-active+.ft-pagination-item,
+.ft-pagination-item.is-more+.ft-pagination-item {
+    border-left: 1px solid #dae0e6
+}
+
+.ft-pagination-item.is-active {
+    color: #e64545
+}
+
+.ft-pagination-item.is-more {
+    padding: 5px
+}
+
+.ft-pagination-item .ft-icon {
+    font-size: 16px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center
+}

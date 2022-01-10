@@ -1,0 +1,722 @@
+/* 命名空间
+--------------------------*/
+$namespace: 'ft' !default;
+
+/* BEF修饰符
+--------------------------*/
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;
+
+/* 版本号
+--------------------------*/
+$version-number: '1.0.0';
+
+/* Color
+-------------------------- */
+$--color-white: #FFFFFF !default;
+$--color-black: #000000 !default;
+//品牌色
+$--color-red: #E64545 !default;
+$--color-yellow: #FF9500 !default;
+$--color-blue: #2E8AE6 !default;
+$--color-green: #13BF13 !default;
+//其他颜色
+$--color-cyan: #16B8D9 !default;
+$--color-carmine: #F24981 !default;
+$--color-violet: #B852CC !default;
+$--color-cornflowerblue: #7373E6 !default;
+$--color-graphite: #6C89A6 !default;
+$--color-grey: #888 !default;
+//border分割线
+$--color-border-module: #E6ECF2 !default;
+$--color-border-list: #DAE0E6 !default;
+$--color-border-button: #CED3D9 !default;
+//文字色
+$--color-text-primary: #222 !default;
+$--color-text-regular: #555 !default;
+$--color-text-secondary: $--color-grey !default;
+$--color-text-placeholder: #B3B3B3 !default;
+//背景色
+$--color-background-base: #F0F1F2 !default;
+$--color-background-regular: #F5F7FA !default;
+
+/* Typography
+--------------------------*/
+$--fonts-path: '../assets/fonts' !default;
+$--font-size-extra-large: 20px !default;
+$--font-size-large: 18px !default;
+$--font-size-medium: 16px !default;
+$--font-size-base: 14px !default;
+$--font-size-small: 13px !default;
+$--font-size-extra-small: 12px !default;
+$--font-weight-primary: 500 !default;
+$--font-weight-secondary: 100 !default;
+$--font-line-height-primary: 24px !default;
+$--font-line-height-secondary: 16px !default;
+$--font-color-disabled-base: #B3B3B3 !default;
+
+/* 圆角
+--------------------------*/
+$--border-radius-base: 4px !default;
+$--border-radius-small: 2px !default;
+$--border-radius-large: 10px !default;
+$--border-radius-circle: 100% !default;
+$--border-radius-zero: 0 !default;
+
+/* 步骤条
+--------------------------*/
+$--stepbar-color: $--color-blue !default;
+
+/* 头像
+--------------------------*/
+$--avatar-size: (
+    'lg': 80,
+    'md': 60,
+    'sm': 40
+) !default;
+
+$--spacing-list: 3,
+5,
+10,
+15,
+20,
+30,
+40,
+50;
+
+/* tag
+--------------------------*/
+$--tag-color: ("red": $--color-red,
+    "yellow": $--color-yellow,
+    "blue": $--color-blue,
+    "green": $--color-green,
+    "cyan": $--color-cyan,
+    "carmine": $--color-carmine,
+    "violet": $--color-violet,
+    "cornflowerblue": $--color-cornflowerblue,
+    "graphite": $--color-graphite,
+    "grey": $--color-grey);
+
+/* Break-point
+--------------------------*/
+$--number-of-grids: 24;
+$--xxs: 360px !default;
+$--xs: 480px !default;
+$--sm: 768px !default;
+$--md: 1024px !default;
+$--lg: 1280px !default;
+$--xl: 1440px !default;
+$--xxl: 1600px !default;
+
+$--breakpoints: ('xxxs' : (max-width: $--xxs - 1),
+    'xxs' : (min-width: $--xxs),
+    'xs' : (min-width: $--xs),
+    'sm' : (min-width: $--sm),
+    'md' : (min-width: $--md),
+    'lg' : (min-width: $--lg),
+    'xl' : (min-width: $--xl),
+    'xxl' : (min-width: $--xxl)) !default;
+
+/* alert
+--------------------------*/
+$--alert-type: (
+    "info": $--color-blue "e002",
+    "success": $--color-green "e000",
+    "warning": $--color-yellow "e003",
+    "error": $--color-red "e001"
+) !default;
+
+/* 输入框
+--------------------------*/
+$--input-disabled-bg: $--color-background-regular !default;
+$--input-error-border-color: $--color-red !default;
+
+/* 单选框
+--------------------------*/
+$--radio-hover-border-color: #2776c6 !default;
+$--radio-checked-hover-color: #0a64bf !default;
+$--radio-disabled-bg-color: #cccccc !default;
+$--radio-label-disabled-bg-color: #edf0f2 !default;
+$--radio-label-border-hover-color: #7d98b3 !default;
+$--radio-label-disabled-border-color: #8ab8e6 !default;
+
+/* result
+--------------------------*/
+$--result-type: (
+    "info": $--color-blue ,
+    "success": $--color-green ,
+    "warning": $--color-yellow ,
+    "error": $--color-red 
+) !default;
+
+/* loading */
+$--loading-size: (
+    "s": 20px 20px,
+    "m": 30px 30px,
+    "l": 40px 40px
+) !default;
+
+/* shadow
+调取某个值，例子：
+.box{
+    box-shadow: map-get(map-get($--shadow-type, "1"), "bottom");
+}
+--------------------------*/
+$--shadow-type: (
+    "1": (
+        "top": 
+            (0px -1px 2px -2px rgba(0,0,0,0.16),
+            0px -3px 6px 0px rgba(0,0,0,0.12),
+            0px -5px 12px 4px rgba(0,0,0,0.09)),
+        "bottom": 
+            (0px 1px 2px -2px rgba(0,0,0,0.16),
+            0px 3px 6px 0px rgba(0,0,0,0.12),
+            0px 5px 12px 4px rgba(0,0,0,0.09)),
+        "left": 
+            (-1px 0px 2px -2px rgba(0,0,0,0.16),
+            -3px 0px 6px 0px rgba(0,0,0,0.12),
+            -5px 0px 12px 4px rgba(0,0,0,0.09)),
+        "right": 
+            (1px 0px 2px -2px rgba(0,0,0,0.16),
+            3px 0px 6px 0px rgba(0,0,0,0.12),
+            5px 0px 12px 4px rgba(0,0,0,0.09)),
+    ),
+    "2": (
+        "top": 
+            (0px -3px 6px -3px rgba(0,0,0,0.12),
+            0px -6px 10px 0px rgba(0,0,0,0.06),
+            0px -9px 16px 8px rgba(0,0,0,0.03)),
+        "bottom": 
+            (0px 3px 6px -3px rgba(0,0,0,0.12),
+            0px 6px 10px 0px rgba(0,0,0,0.06),
+            0px 9px 16px 8px rgba(0,0,0,0.03)),
+        "left": 
+            (-3px 0px 6px -3px rgba(0,0,0,0.12),
+            -6px 0px 10px 0px rgba(0,0,0,0.06),
+            -9px 0px 16px 8px rgba(0,0,0,0.03)),
+        "right": 
+            (3px 0px 6px -3px rgba(0,0,0,0.12),
+            6px 0px 10px 0px rgba(0,0,0,0.06),
+            9px 0px 16px 8px rgba(0,0,0,0.03)),
+    )
+) !default;
+/*  Break-points
+ -------------------------- */
+/*  example:
+    @include res('xs'){
+        body{
+            color:#fff;
+        };
+    }
+
+    out:
+    @media only screen and (min-width: 1440px) {
+        body {
+            color: #fff;
+        }
+    }
+ -------------------------- */
+@mixin res($key, $map: $--breakpoints) {
+
+    // 循环断点Map，如果存在则返回
+    @if map-has-key($map, $key) {
+        @media only screen and #{inspect(map-get($map, $key))} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Undefeined points: `#{$map}`";
+    }
+}
+
+
+/*  文字垂直居中
+ -------------------------- */
+/*  example:
+    .text{
+        height: 300px;
+        @include utils-vertical-center;
+    }
+ -------------------------- */
+@mixin utils-vertical-center {
+    $selector: &;
+
+    @at-root {
+        #{$selector}::after {
+            display: inline-block;
+            content: "";
+            height: 100%;
+            vertical-align: middle
+        }
+    }
+}
+
+
+/*  单行文字截取
+ -------------------------- */
+@mixin utils-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*  禁用选取
+ -------------------------- */
+@mixin utils-user-select($value) {
+    -moz-user-select: $value;
+    -webkit-user-select: $value;
+    -ms-user-select: $value;
+}
+
+
+
+/*  Retina图片
+ -------------------------- */
+/*  example:
+    div.logo { 
+        background: url("logo.png") no-repeat; 
+        @include image-2x("logo2x.png", 100px, 25px); 
+    }
+
+    out:
+    div.logo { 
+        background: url("logo.png") no-repeat; 
+    } 
+    @media (min--moz-device-pixel-ratio: 1.3), 
+    (-o-min-device-pixel-ratio: 2.6 / 2), 
+    (-webkit-min-device-pixel-ratio: 1.3), 
+    (min-device-pixel-ratio: 1.3), 
+    (min-resolution: 1.3dppx) { 
+        div.logo { 
+            background-image: url("logo2x.png"); background-size: 100px 25px; 
+        } 
+    }
+ -------------------------- */
+@mixin image-2x($image, $width, $height) {
+
+    @media (min--moz-device-pixel-ratio: 1.3),
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image);
+        background-size: $width $height;
+    }
+}
+
+
+
+/*  Scrollbar
+ -------------------------- */
+@mixin scroll-bar {
+    $--scrollbar-thumb-background: $--color-border-button;
+    $--scrollbar-track-background: #fff;
+
+    &::-webkit-scrollbar {
+        z-index: 11;
+        width: 6px;
+
+        &:horizontal {
+            height: 6px;
+        }
+
+        &-thumb {
+            border-radius: 5px;
+            width: 6px;
+            background: $--scrollbar-thumb-background;
+        }
+
+        &-corner {
+            background: $--scrollbar-track-background;
+        }
+
+        &-track {
+            background: $--scrollbar-track-background;
+
+            &-piece {
+                background: $--scrollbar-track-background;
+                width: 6px;
+            }
+        }
+    }
+}
+
+
+
+/*  清除浮动
+ -------------------------- */
+/*  example:
+    .article {
+        @include clearfix();
+    }
+
+    out:
+    .article:before,
+    .article:after {
+        content: "";
+        display: table;
+    }
+
+    .article:after {
+        clear: both;
+    }
+ -------------------------- */
+@mixin clearfix() {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/*  css3前缀
+ -------------------------- */
+/*  example:
+    .border_radius { 
+        @include css3(transition, 0.5s); 
+    }
+
+    out:
+    .border_radius { 
+        -webkit-transition: 0.5s; 
+        -moz-transition: 0.5s; 
+        -ms-transition: 0.5s; 
+        -o-transition: 0.5s; 
+        transition: 0.5s; 
+    }
+ -------------------------- */
+@mixin css3($property, $value) {
+
+    @each $prefix in -webkit-,
+    -moz-,
+    -ms-,
+    -o-,
+    '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+
+
+/*  BEM
+ -------------------------- */
+@mixin b($block) {
+    $B: $namespace+'-'+$block !global;
+
+    .#{$B} {
+        @content;
+    }
+}
+
+@mixin e($element) {
+    $E: $element !global;
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $element {
+        $currentSelector: #{$currentSelector + "." + $B + $element-separator + $unit + ","};
+    }
+
+    @if hitAllSpecialNestRule($selector){
+        @at-root {
+            #{$selector} {
+                #{$currentSelector} {
+                    @content;
+                }
+            }
+        }
+    } 
+
+    @else {
+        @at-root {
+            #{$currentSelector} {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin m($modifier) {
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $modifier {
+        $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ","};
+    }
+    
+    @at-root {
+        #{$currentSelector} {
+            @content;
+        }
+    }
+}
+
+@mixin m-separ($modifier, $E-flag: false) {
+    $selector: &;
+    $currentSelector: "";
+
+    @each $unit in $modifier {
+        $currentSelector: #{$currentSelector + & + '-' + $unit + ","};
+    }
+    @if $E-flag{
+        @at-root {
+            .#{$B}{
+                #{$currentSelector} {
+                    @content;
+                }
+            }
+        }
+
+    } @else {
+        @at-root {
+            #{$currentSelector} {
+                @content;
+            }
+        }
+    }
+}
+
+
+/*  example:
+    .border_radius { 
+        @include configurable-m(m){
+            width: 0px;
+        };
+    }
+
+    out:
+    .border_radius .ft-timeline--m {
+        width: 0px; 
+    }
+ -------------------------- */
+@mixin configurable-m($modifier) {
+    $selector: &;
+    $interpolation: '';
+
+    @at-root {
+        #{$selector} {
+            .#{$B+$interpolation+$modifier-separator+$modifier} {
+                @content;
+            }
+        }
+    }
+}
+
+/*  状态
+ -------------------------- */
+/*  example:
+    div{
+        @include when(selected){
+            color: red;
+        }
+    }
+
+    out:
+    div.is-selected {
+        color: red;
+    }
+ -------------------------- */
+@mixin when($state) {
+    @at-root {
+        &.#{$state-prefix + $state} {
+            @content;
+        }
+    }
+}
+
+/*  伪类
+ -------------------------- */
+/*  example:
+    div{
+        @include pseudo(after){
+            display: inline-block;
+            content: '';
+        }
+    }
+
+    out:
+    div:after {
+        display: inline-block;
+        content: "";
+    }
+ -------------------------- */
+@mixin pseudo($pseudo) {
+    @at-root #{&}#{':#{$pseudo}'} {
+@content
+}
+}
+
+
+
+/*  Placeholder
+ -------------------------- */
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+
+    &::-moz-placeholder {
+        @content
+    }
+
+    &:-ms-input-placeholder {
+        @content
+    }
+}
+
+$toast-type: $--result-type !default;
+
+$toast-class: #{$namespace + "-toast"} !default;
+$toast-z-index: 5000 !default;
+
+
+.#{$toast-class}-container {
+    position: fixed;
+    z-index: $toast-z-index;
+
+    @include when(above) {
+        transform: translate(-50%, -100%);
+    }
+    @include when(center) {
+        transform: translate(-50%, -50%);
+    }
+    @include when(top-center) {
+        transform: translate(-50%, 0);
+    }
+    @include when(bottom-center) {
+        transform: translate(-50%, 0);
+    }
+}
+
+.#{$toast-class} {
+    & + .#{$toast-class} {
+        margin-top: 10px;
+    }
+    padding: 14px 15px;
+    width: auto;
+    border-radius: $--border-radius-base;
+    box-shadow: 0 9px 16px 8px rgba(0,0,0,0.03), 0 6px 10px 0 rgba(0,0,0,0.06), 0 3px 6px -3px rgba(0,0,0,0.12);
+    background: $--color-white;
+    line-height: 1.5;
+
+    display: block;
+    position: relative;
+
+    &-body {
+        display: flex;
+        align-items: center;
+
+        font-size: 0;
+    }
+
+
+    &-icon {
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    &-content {
+        @at-root .#{$toast-class} .#{$toast-class}-icon + & {
+            margin-left: 10px;
+        }
+
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    &-closable {
+        padding-right: 20px;
+    }
+
+    &-close {
+        position: absolute;
+        right: 5px;
+        top: 3px;
+        color: #000;
+        cursor: pointer;
+        outline: none;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+        text-shadow: 0 1px 0 #fff;
+        filter: alpha(opacity=20);
+        opacity: .2;
+        text-decoration: none;
+
+        &-x:after {
+            content: '×';
+        }
+
+        &:hover {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            text-decoration: none;
+        }
+    }
+}
+
+.#{$toast-class} {
+    $toast: &;
+    @each $type, $color in $toast-type {
+        @include when($type){
+            #{$toast}-icon {
+                color: $color;
+            }
+        }
+    }
+}
+
+%fade-effect {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+}
+
+.#{$toast-class}-fade-appear,
+.#{$toast-class}-fade-enter {
+    opacity: 0;
+    @extend %fade-effect;
+    animation-play-state: paused;
+}
+
+.#{$toast-class}-fade-leave {
+    @extend %fade-effect;
+    animation-play-state: paused;
+}
+
+.#{$toast-class}-fade-appear.#{$toast-class}-fade-appear-active,
+.#{$toast-class}-fade-enter.#{$toast-class}-fade-enter-active {
+    animation-name: RcToastFadeIn;
+    animation-play-state: running;
+}
+
+.#{$toast-class}-fade-leave.#{$toast-class}-fade-leave-active {
+    animation-name: RcToastFadeOut;
+    animation-play-state: running;
+}
+
+@keyframes RcToastFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes RcToastFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
