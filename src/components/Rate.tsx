@@ -24,6 +24,7 @@ const Rate: React.FC<RateProps> = (props) => {
 }
 Rate.defaultProps = {
   count: 5,
+  value: 5
   //   character: <i className="ob-icon icon-star-f stared"></i>
 }
 export default Rate

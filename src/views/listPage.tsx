@@ -38,6 +38,29 @@ const ListPage: React.FC<listPageProps> = (props) => {
       operation: 'Write a Review',
     },
   ]
+  const demo2 = [
+    {
+      prodName: '1',
+      comName: 2,
+      imgSrc: '',
+      rate: 3,
+      operation: 'Check My Review',
+    },
+    {
+      prodName: '2',
+      comName: 2,
+      imgSrc: '',
+      rate: 4,
+      operation: 'Check My Review',
+    },
+    {
+      prodName: '3',
+      comName: 2,
+      imgSrc: '',
+      rate: 5,
+      operation: 'Check My Review',
+    },
+  ]
   const tabList = ['Awaiting Review','Reviewed']
   const tabClick = (val:string)=>{
     setCurrentTab(val)
@@ -56,7 +79,7 @@ const ListPage: React.FC<listPageProps> = (props) => {
         ) : (
           <>
             <Table head rate />
-            <Table rate data={demo} />
+            <Table rate data={demo2} />
           </>
         )
       }

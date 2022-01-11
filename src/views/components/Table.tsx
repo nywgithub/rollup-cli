@@ -1,6 +1,6 @@
 import React from 'react'
 import Rate from '../../components/Rate'
-import { callReactionFormDialog } from '../reactionDialog'
+import { callReactionFormDialog, reactionDialogProps } from '../reactionDialog'
 export type Item = {
   prodName: string
   comName: number
@@ -25,7 +25,11 @@ const Table: React.FC<TableProps> = (props) => {
     item: Item,
   ) => {
     e.preventDefault()
-    callReactionFormDialog({ item: item })
+    var prop:reactionDialogProps= {
+      item:item,
+      isEdit:item.operation === 'Write a Review'
+    }
+    callReactionFormDialog({ ...prop })
     onClick && onClick(e, item)
   }
   return (
