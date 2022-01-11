@@ -22,20 +22,20 @@ const FingerRate: React.FC<FingerRateProps> = (props) => {
   const [value, setValue] = useState(false)
   const [currentKey, setCurrentKey] = useState(defaultValue)
   const characters: Array<React.ReactNode> = []
-  const calcClassName = function (key): string {
+  const calcClassName = function (key:number): string {
     if (key === currentKey) {
       return 'selected'
     } else {
       return ''
     }
   }
-  const clickEvent = (e, key) => {
+  const clickEvent = (e:any, key:number) => {
     e.preventDefault()
     setValue(!value)
     setCurrentKey(key)
     onClick && onClick(e, value, key)
   }
-  const characterItem = (key) => {
+  const characterItem = (key:number) => {
     return (
       <span
         key={key}
