@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 
 import ReactDOM from 'react-dom'
-import { TextArea } from '@future/input/dist/react'
 import ToolTip from '../components/ToolTip'
 import { callDialog } from '../dialog'
 import Rate from '../components/Rate'
 import FingerRate from '../components/FingerRate'
 import { Item } from './components/Table'
+import { TextArea } from '@future/input/dist/react'
 
 const reviewFactors = [
   'Responsiveness',
@@ -23,9 +23,15 @@ export interface reactionDialogProps {
 const ReactionDialog: React.FC<reactionDialogProps> = (props) => {
   const { item, isEdit } = props
   const [reaction,setReaction] = useState('')
+  const [textValue, setTextValue] = useState('')
   useEffect(()=>{
     setReaction('asd')
   })
+  const [errorMessage,sendErrorMessage] =  useState('')
+  //双向绑定input值
+  const inputChange = (e:React.ChangeEvent<HTMLTextAreaElement>)=>{
+    setTextValue(e.target.value)
+  }
   const tooltipContent = (
     <>
       <span>
@@ -88,11 +94,14 @@ const ReactionDialog: React.FC<reactionDialogProps> = (props) => {
               <FingerRate character={<div>★</div>} disabled />
             )}
           </div>
-        )
+        ) 
       })}
       {/* 具体评价 */}
       {isEdit! ?(
-        <TextArea defaultValue="Share your experience about this supplier."/>
+        <>
+          <TextArea placeholder="Share your experience about this supplier." value={textValue}  maxLength={500} onBlur={(e)=>{console.log(e,textValue)}} onChange={(e)=>{inputChange(e)}}/>
+          <div className="feedback-block"><div className="error">{errorMessage}</div></div>
+        </>
       ):(
         <p>{reaction}</p>
       )}
