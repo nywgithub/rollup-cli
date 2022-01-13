@@ -31,7 +31,7 @@ class Vupload extends React.Component<VuploadProps> {
   }
   render(): React.ReactNode {
     const { action } = this.props
-    const { imgList, number } = this.state
+    const { imgList } = this.state
     const imgs = imgList.map((item:string,index:number)=>{
         return (
             <li key={index}>
