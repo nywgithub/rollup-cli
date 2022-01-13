@@ -24,17 +24,20 @@ const Table: React.FC<TableProps> = (props) => {
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     item: Item,
   ) => {
+    if(item.operation === 'deleted') return;
     e.preventDefault()
     var prop:reactionDialogProps= {
       item:item,
       isEdit:item.operation === 'Write a Review'
     }
-    callReactionFormDialog({ ...prop })
+    //表格组件负责打开弹窗，引入实例，具体按钮（提交/取消）操作在父组件进行（组件业务分离）
+    //prop为表格当前点击订单信息
+    callReactionFormDialog({ ...prop }).then(res=>{}).catch(err=>{})
     onClick && onClick(e, item)
   }
   return (
     <table
-      className={
+      className={ 
         head
           ? 'table table-base inquiry-list-table inquiry-list-table-header'
           : 'table table-base table-hover inquiry-list-table'

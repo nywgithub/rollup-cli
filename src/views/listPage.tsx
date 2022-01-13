@@ -51,7 +51,7 @@ const ListPage: React.FC<listPageProps> = (props) => {
       comName: 2,
       imgSrc: '',
       rate: 4,
-      operation: 'Check My Review',
+      operation: 'deleted',
     },
     {
       prodName: '3',

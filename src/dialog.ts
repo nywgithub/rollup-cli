@@ -105,11 +105,14 @@ export const callDialog = <T = void>(
 
     dialog = getDialogInstance(
       React.cloneElement(content, {
+        //表单关闭（提交/关闭）传递给父组件
         confirmDialog: (data: T) => {
+          console.log(data)
           resolve(data)
           dialog && dialog.close()
         },
         cancelDialog: (err: any) => {
+          console.log(err)
           reject(err)
           dialog && dialog.close()
         },
