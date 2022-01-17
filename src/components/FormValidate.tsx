@@ -12,27 +12,30 @@ export interface FormValidateProps {
 
 const FormValidate: React.FC<FormValidateProps> = (props, ref) => {
   const { children, validate } = props
-  const [errorMessage, setErrorMessage] = useState('')
-  const [show, setShow] = useState(false)
-  const [length, setLength] = useState(0)
+  const [errorMessage, setErrorMessage] = useState<string | undefined>('')
+  const [show, setShow] = useState<boolean>(false)
+  const [length, setLength] = useState<number>(0)
   // const formRef = useRef()
   useImperativeHandle(ref, () => ({
       validateFn
   }));
   const validateFn = () => {
-    if(!validate) return
+    if(!validate) return true
     if (length < validate.min!) {
       setShow(true)
       setErrorMessage(validate.minError!)
+      return false
     } else if(length > validate.max!){
       setShow(true)
       setErrorMessage(validate.maxError!)
+      return false
     } else {
       setShow(false)
+      return true
     }
   }
   return (
-    <div ref={ref}>
+    <div>
       {React.cloneElement(children, {
         onBlur(e: any) {
           setLength(e.target.value.length)

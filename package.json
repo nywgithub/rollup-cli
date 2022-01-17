@@ -53,13 +53,13 @@
     "@future/core": "latest",
     "@future/input": "^2.0.2",
     "@future/toast": "^2.0.0",
-    "@future/upload": "^2.0.0",
     "axios-wings": "^0.1.6",
     "classnames": "^2.3.1",
     "is-mobile": "^3.0.0",
     "preact": "^10.5.13",
     "prop-types": "^15.8.1",
     "rc-rate": "^2.9.1",
+    "rc-upload": "^4.3.3",
     "react": "^17.0.2"
   },
   "peerDependencies": {

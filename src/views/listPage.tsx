@@ -10,8 +10,8 @@ interface listPageProps {}
 
 const ListPage: React.FC<listPageProps> = (props) => {
   const [pager, setPager] = useState({ pageNo: 1, pageTotal: 10 })
-  const [currentTab,setCurrentTab] = useState('Awaiting Review')
-  const pageChange = function (e:number) {
+  const [currentTab, setCurrentTab] = useState('Awaiting Review')
+  const pageChange = function (e: number) {
     setPager({ ...pager, pageNo: e })
   }
 
@@ -61,29 +61,32 @@ const ListPage: React.FC<listPageProps> = (props) => {
       operation: 'Check My Review',
     },
   ]
-  const tabList = ['Awaiting Review','Reviewed']
-  const tabClick = (val:string)=>{
+  const tabList = ['Awaiting Review', 'Reviewed']
+  const tabClick = (val: string) => {
     setCurrentTab(val)
   }
   // useEffect()
 
   return (
     <div>
-      <TabsControl tabList={tabList} tabClick={(e:string) => { tabClick(e) }} />
-      {
-        currentTab === 'Awaiting Review' ? (
-          <>
-            <Table head />
-            <Table data={demo} />
-          </>
-        ) : (
-          <>
-            <Table head rate />
-            <Table rate data={demo2} />
-          </>
-        )
-      }
-      
+      <TabsControl
+        tabList={tabList}
+        tabClick={(e: string) => {
+          tabClick(e)
+        }}
+      />
+      {currentTab === 'Awaiting Review' ? (
+        <>
+          <Table head />
+          <Table data={demo} />
+        </>
+      ) : (
+        <>
+          <Table head rate />
+          <Table rate data={demo2} />
+        </>
+      )}
+
       {/* 分页 */}
       <Pager
         simple={false}

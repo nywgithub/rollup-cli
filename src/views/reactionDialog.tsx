@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import ReactDOM from 'react-dom'
 import ToolTip from '../components/ToolTip'
@@ -8,7 +8,7 @@ import FingerRate from '../components/FingerRate'
 import { Item } from './components/Table'
 import FormValidate from '../components/FormValidate'
 import { TextArea } from '@future/input/dist/react'
-import { Button } from "@future/button/dist/react";
+import { Button } from '@future/button/dist/react'
 import Vupload from '../components/Vupload'
 
 const reviewFactors = [
@@ -18,34 +18,39 @@ const reviewFactors = [
   'Delivery Time',
 ]
 
-export interface reactionDialogProps extends DialogInjectProps{
+export interface reactionDialogProps extends DialogInjectProps {
   item?: Item //订单信息
   isEdit?: boolean //是否编辑
 }
 
 const ReactionDialog: React.FC<reactionDialogProps> = (props) => {
-  const { item, isEdit, confirmDialog, cancelDialog} = props
-  const [reaction,setReaction] = useState('')
-  const [textValue, setTextValue] = useState('')
-
+  const { item, isEdit, confirmDialog, cancelDialog } = props
+  //已经编辑的评价
+  const [reaction, setReaction] = useState<string>('')
+  //用户输入的评价
+  const [textValue, setTextValue] = useState<string>('')
+  //用户打分（⭐）
+  const [starRate,setStarRate] = useState<number>(0)
+  //用户点👍👎
+  const [fingerRate,setFingerRate] = useState<number>(0)
   //表单校验实例
   const formRef = useRef()
 
-  useEffect(()=>{
+  useEffect(() => {
     setReaction('asd')
   })
 
-  
   //双向绑定textarea输入值
-  const inputChange = (e:React.ChangeEvent<HTMLTextAreaElement>)=>{
+  const inputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextValue(e.target.value)
     // formRef.current.validateFn()
   }
 
   //评价文本域校验
   const validate = {
-    min:10,
-    minError:'At least 10 characters are required. It will help usserve you better.'
+    min: 10,
+    minError:
+      'At least 10 characters are required. It will help us serve you better.',
   }
 
   //tooltip内容
@@ -82,18 +87,20 @@ const ReactionDialog: React.FC<reactionDialogProps> = (props) => {
   }
 
   //表单按钮四种不同情况 -- start
-  const cancel = () =>{
+  const cancel = () => {
     //关闭弹窗并传递参数
     cancelDialog!(item)
   }
-  const submit = () =>{
+  const submit = () => {
+    //提交时表单校验
+    if(formRef.current.validateFn() === false) return
     //发出post请求
 
     //关闭弹窗并传递参数
     confirmDialog!(item)
   }
-  const del = () =>{
-    callDialog(<span>123</span>,{
+  const del = () => {
+    callDialog(<span>123</span>, {
       classList: ['reaction-form-dialog'],
       title: false,
       close() {
@@ -101,19 +108,17 @@ const ReactionDialog: React.FC<reactionDialogProps> = (props) => {
       },
       ok() {
         //发delete请求
-
         //请求成功回调关闭弹窗并传递参数
         //TODO：无法关闭当前弹窗
         // cancelDialog!(item)
       },
-      cancel(){},
+      cancel() {},
       okVal: 'Delete',
-      cancelVal: 'Cancel'
+      cancelVal: 'Cancel',
     })
   }
-  const edit = () =>{
+  const edit = () => {
     //TODO:子组件改变props
-
   }
   //表单按钮四种不同情况 -- end
 
@@ -151,26 +156,40 @@ const ReactionDialog: React.FC<reactionDialogProps> = (props) => {
               <FingerRate character={<div>★</div>} disabled />
             )}
           </div>
-        ) 
+        )
       })}
       {/* 具体评价 */}
-      {isEdit! ?(
+      {isEdit! ? (
         <>
           <FormValidate validate={validate} ref={formRef}>
-            <TextArea placeholder="Share your experience about this supplier." value={textValue}  maxLength={500} onBlur={(e)=>{console.log(e,textValue)}} onChange={(e)=>{inputChange(e)}}/>
+            <TextArea
+              placeholder="Share your experience about this supplier."
+              value={textValue}
+              maxLength={500}
+              onBlur={(e) => {
+                console.log(e, textValue)
+              }}
+              onChange={(e) => {
+                inputChange(e)
+              }}
+            />
           </FormValidate>
-          <Vupload />
+          <Vupload action = "/upload" />
           <Button onClick={cancel}>Cancel</Button>
-          <Button type="primary" onClick={submit}>Submit</Button>
+          <Button type="primary" onClick={submit}>
+            Submit
+          </Button>
         </>
-      ):(
+      ) : (
         <>
           <p>{reaction}</p>
-          <div className="img-area">
-
-          </div>
-          <Button type="primary" onClick={del}>Delete</Button>
-          <Button type="primary" onClick={edit}>Edit</Button>
+          <div className="img-area"></div>
+          <Button type="primary" onClick={del}>
+            Delete
+          </Button>
+          <Button type="primary" onClick={edit}>
+            Edit
+          </Button>
         </>
       )}
     </>
